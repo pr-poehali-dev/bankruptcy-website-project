@@ -1,7 +1,17 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const scrollToCalculator = () => {
+    const element = document.querySelector('#calculator');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section id="hero" className="pt-32 pb-20 bg-gradient-to-br from-white to-secondary">
       <div className="container mx-auto px-4">
@@ -22,11 +32,11 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
-              <Button size="lg" className="text-base">
+              <Button size="lg" className="text-base" onClick={() => setIsModalOpen(true)}>
                 <Icon name="Phone" size={18} className="mr-2" />
                 Бесплатная консультация
               </Button>
-              <Button size="lg" variant="outline" className="text-base">
+              <Button size="lg" variant="outline" className="text-base" onClick={scrollToCalculator}>
                 <Icon name="Calculator" size={18} className="mr-2" />
                 Рассчитать стоимость
               </Button>
@@ -97,13 +107,15 @@ const HeroSection = () => {
                 </p>
               </div>
 
-              <Button className="w-full" size="lg">
+              <Button className="w-full" size="lg" onClick={() => setIsModalOpen(true)}>
                 Получить консультацию
               </Button>
             </div>
           </div>
         </div>
       </div>
+
+      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

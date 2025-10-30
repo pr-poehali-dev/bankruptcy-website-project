@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const menuItems = [
     { title: "Главная", href: "#hero" },
@@ -53,7 +55,7 @@ const Header = () => {
               <p className="text-sm font-semibold text-foreground">+7 (495) 123-45-67</p>
               <p className="text-xs text-muted-foreground">Работаем 24/7</p>
             </div>
-            <Button size="sm">Консультация</Button>
+            <Button size="sm" onClick={() => setIsModalOpen(true)}>Консультация</Button>
           </div>
 
           <button
@@ -78,11 +80,13 @@ const Header = () => {
             <div className="pt-4 border-t border-border">
               <p className="text-sm font-semibold text-foreground">+7 (495) 123-45-67</p>
               <p className="text-xs text-muted-foreground mb-3">Работаем 24/7</p>
-              <Button className="w-full">Консультация</Button>
+              <Button className="w-full" onClick={() => setIsModalOpen(true)}>Консультация</Button>
             </div>
           </nav>
         )}
       </div>
+
+      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 };
