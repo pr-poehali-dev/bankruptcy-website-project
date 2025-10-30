@@ -1,60 +1,76 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import Icon from "@/components/ui/icon";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import Icon from "@/components/ui/icon";
-import { useState } from "react";
 
 const Index = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: ""
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-primary">БанкротЭксперт</div>
-          <div className="hidden md:flex gap-6">
-            <a href="#services" className="hover:text-primary transition-colors">Услуги</a>
-            <a href="#steps" className="hover:text-primary transition-colors">Этапы</a>
-            <a href="#prices" className="hover:text-primary transition-colors">Цены</a>
-            <a href="#cases" className="hover:text-primary transition-colors">Кейсы</a>
-            <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
-            <a href="#blog" className="hover:text-primary transition-colors">Блог</a>
-            <a href="#contacts" className="hover:text-primary transition-colors">Контакты</a>
-          </div>
-          <Button>Консультация</Button>
-        </nav>
+      <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="text-2xl font-bold text-primary">БанкротПрофи</div>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#services" className="text-foreground hover:text-primary transition">Услуги</a>
+            <a href="#process" className="text-foreground hover:text-primary transition">Этапы</a>
+            <a href="#prices" className="text-foreground hover:text-primary transition">Цены</a>
+            <a href="#cases" className="text-foreground hover:text-primary transition">Кейсы</a>
+            <a href="#blog" className="text-foreground hover:text-primary transition">Блог</a>
+            <a href="#faq" className="text-foreground hover:text-primary transition">FAQ</a>
+            <a href="#contact" className="text-foreground hover:text-primary transition">Контакты</a>
+          </nav>
+          <Button className="hidden md:inline-flex">Консультация</Button>
+          <button className="md:hidden">
+            <Icon name="Menu" size={24} />
+          </button>
+        </div>
       </header>
 
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary/5 to-accent/5">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-background to-muted">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-secondary">
-              Банкротство физических лиц
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Законное списание долгов под ключ. Профессиональное сопровождение на всех этапах процедуры банкротства
-            </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" className="text-lg px-8">
-                <Icon name="Calendar" size={20} className="mr-2" />
-                Онлайн-консультация
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                <Icon name="Phone" size={20} className="mr-2" />
-                Позвонить
-              </Button>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Банкротство физических лиц под ключ
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                Законное освобождение от долгов за 6-12 месяцев. Полное юридическое сопровождение от экспертов с опытом более 500 дел.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="text-lg px-8">
+                  Бесплатная консультация
+                </Button>
+                <Button size="lg" variant="outline" className="text-lg px-8">
+                  Рассчитать стоимость
+                </Button>
+              </div>
+              <div className="grid grid-cols-3 gap-6 mt-12">
+                <div>
+                  <div className="text-3xl font-bold text-primary">500+</div>
+                  <div className="text-sm text-muted-foreground">Успешных дел</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">12 лет</div>
+                  <div className="text-sm text-muted-foreground">Опыт работы</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">98%</div>
+                  <div className="text-sm text-muted-foreground">Выигранных дел</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/files/86fe1f8e-c102-42a7-a1eb-5c38afded997.jpg" 
+                alt="Консультация по банкротству"
+                className="rounded-2xl shadow-2xl w-full"
+              />
             </div>
           </div>
         </div>
@@ -62,102 +78,135 @@ const Index = () => {
 
       <section id="services" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Наши услуги</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Наши услуги</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Полный спектр юридических услуг по банкротству физических лиц
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "FileText",
-                title: "Консультация по банкротству",
-                description: "Бесплатная оценка вашей ситуации и перспектив банкротства"
-              },
-              {
-                icon: "Scale",
-                title: "Полное сопровождение",
-                description: "Ведение дела от подачи заявления до полного списания долгов"
-              },
-              {
-                icon: "Shield",
-                title: "Защита от кредиторов",
-                description: "Остановка звонков коллекторов и судебных приставов"
-              },
-              {
-                icon: "Briefcase",
-                title: "Работа с ИП",
-                description: "Банкротство индивидуальных предпринимателей"
-              },
-              {
-                icon: "Users",
-                title: "Семейное банкротство",
-                description: "Комплексное решение долговых проблем семьи"
-              },
-              {
-                icon: "CheckCircle",
-                title: "Реструктуризация долга",
-                description: "Альтернативные варианты решения долговых проблем"
-              }
-            ].map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow animate-fade-in">
-                <CardHeader>
-                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon name={service.icon} size={28} className="text-primary" />
-                  </div>
-                  <CardTitle>{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            <Card className="p-8 hover:shadow-xl transition">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Icon name="Scale" size={32} className="text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Судебное банкротство</h3>
+              <p className="text-muted-foreground mb-6">
+                Полное сопровождение процедуры банкротства через арбитражный суд с гарантией результата
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Подготовка документов</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Представительство в суде</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Работа с кредиторами</span>
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-xl transition border-primary border-2">
+              <div className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm inline-block mb-4">
+                Популярно
+              </div>
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Icon name="FileText" size={32} className="text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Банкротство под ключ</h3>
+              <p className="text-muted-foreground mb-6">
+                Комплексная услуга от подачи заявления до полного списания долгов без вашего участия
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Юридический анализ</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Все этапы процедуры</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Защита имущества</span>
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-xl transition">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Icon name="Users" size={32} className="text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Консультации</h3>
+              <p className="text-muted-foreground mb-6">
+                Профессиональная юридическая консультация по вопросам банкротства и долгам
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Оценка перспектив</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>План действий</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Ответы на вопросы</span>
+                </li>
+              </ul>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section id="steps" className="py-20 bg-muted/30">
+      <section id="process" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Этапы работы</h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Этапы работы</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Прозрачный и понятный процесс от первой консультации до списания долгов
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                number: "01",
-                title: "Консультация и анализ",
-                description: "Изучаем вашу ситуацию, оцениваем перспективы, рассказываем о процедуре"
+                step: "01",
+                title: "Консультация",
+                description: "Анализируем вашу ситуацию, оцениваем перспективы банкротства и составляем план действий",
+                icon: "MessageSquare"
               },
               {
-                number: "02",
-                title: "Сбор документов",
-                description: "Помогаем собрать все необходимые документы для подачи заявления"
+                step: "02",
+                title: "Подготовка",
+                description: "Собираем необходимые документы, готовим заявление и формируем доказательную базу",
+                icon: "FolderOpen"
               },
               {
-                number: "03",
-                title: "Подача заявления",
-                description: "Подготавливаем и подаём заявление о банкротстве в арбитражный суд"
+                step: "03",
+                title: "Суд",
+                description: "Подаем заявление в арбитражный суд, представляем ваши интересы на всех заседаниях",
+                icon: "Gavel"
               },
               {
-                number: "04",
-                title: "Судебный процесс",
-                description: "Представляем ваши интересы в суде, работаем с финансовым управляющим"
-              },
-              {
-                number: "05",
-                title: "Реализация имущества",
-                description: "Сопровождаем процедуру реализации имущества, защищаем ваши права"
-              },
-              {
-                number: "06",
-                title: "Списание долгов",
-                description: "Получаем решение суда о признании банкротом и списании долгов"
+                step: "04",
+                title: "Результат",
+                description: "Получаем решение суда о списании долгов и освобождении от обязательств",
+                icon: "Trophy"
               }
-            ].map((step, index) => (
-              <div key={index} className="flex gap-6 mb-8 animate-fade-in">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-accent text-secondary rounded-full flex items-center justify-center text-2xl font-bold">
-                    {step.number}
+            ].map((item, index) => (
+              <div key={index} className="relative">
+                <Card className="p-6 h-full">
+                  <div className="text-6xl font-bold text-primary/10 mb-4">{item.step}</div>
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                    <Icon name={item.icon} size={24} className="text-primary-foreground" />
                   </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-lg">{step.description}</p>
-                </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </Card>
               </div>
             ))}
           </div>
@@ -166,112 +215,142 @@ const Index = () => {
 
       <section id="prices" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Тарифы</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Базовый",
-                price: "от 25 000 ₽",
-                features: [
-                  "Первичная консультация",
-                  "Анализ документов",
-                  "Подготовка заявления",
-                  "Подача в суд",
-                  "Консультации по телефону"
-                ]
-              },
-              {
-                name: "Стандарт",
-                price: "от 50 000 ₽",
-                features: [
-                  "Всё из тарифа «Базовый»",
-                  "Представительство в суде",
-                  "Работа с финансовым управляющим",
-                  "Защита имущества",
-                  "Сопровождение до списания долгов"
-                ],
-                popular: true
-              },
-              {
-                name: "Премиум",
-                price: "от 80 000 ₽",
-                features: [
-                  "Всё из тарифа «Стандарт»",
-                  "Персональный юрист",
-                  "Работа со сложными делами",
-                  "Взаимодействие с приставами",
-                  "Гарантия результата",
-                  "24/7 поддержка"
-                ]
-              }
-            ].map((tariff, index) => (
-              <Card key={index} className={`${tariff.popular ? 'border-primary border-2 shadow-xl' : ''} animate-fade-in hover:shadow-lg transition-shadow`}>
-                {tariff.popular && (
-                  <div className="bg-primary text-primary-foreground text-center py-2 font-semibold">
-                    Популярный
-                  </div>
-                )}
-                <CardHeader>
-                  <CardTitle className="text-2xl">{tariff.name}</CardTitle>
-                  <CardDescription className="text-3xl font-bold text-primary mt-2">
-                    {tariff.price}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {tariff.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full mt-6" variant={tariff.popular ? "default" : "outline"}>
-                    Выбрать тариф
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Цены</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Честные и прозрачные тарифы без скрытых платежей
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold mb-2">Консультация</h3>
+              <div className="text-4xl font-bold text-primary mb-6">Бесплатно</div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Анализ ситуации</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Оценка перспектив</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>План действий</span>
+                </li>
+              </ul>
+              <Button className="w-full" variant="outline">Записаться</Button>
+            </Card>
+
+            <Card className="p-8 border-2 border-primary relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm">
+                Лучшее предложение
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Под ключ</h3>
+              <div className="text-4xl font-bold text-primary mb-2">от 45 000 ₽</div>
+              <div className="text-sm text-muted-foreground mb-6">Полное сопровождение</div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Все документы</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Судебное представительство</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Работа с кредиторами</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Защита имущества</span>
+                </li>
+              </ul>
+              <Button className="w-full">Выбрать</Button>
+            </Card>
+
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold mb-2">VIP</h3>
+              <div className="text-4xl font-bold text-primary mb-2">от 80 000 ₽</div>
+              <div className="text-sm text-muted-foreground mb-6">Премиум-услуга</div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Всё из тарифа "Под ключ"</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Персональный юрист</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>24/7 поддержка</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <span>Ускоренные сроки</span>
+                </li>
+              </ul>
+              <Button className="w-full" variant="outline">Выбрать</Button>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section id="cases" className="py-20 bg-muted/30">
+      <section id="cases" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Кейсы и примеры</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Кейсы и примеры</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Реальные истории наших клиентов
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Списание 2,5 млн рублей",
-                description: "Клиент имел долги перед 5 банками. Процедура банкротства заняла 8 месяцев, все долги списаны полностью.",
-                result: "Долг списан: 2 500 000 ₽"
+                name: "Михаил С.",
+                debt: "2,8 млн ₽",
+                result: "Списано 100%",
+                time: "8 месяцев",
+                story: "Долги по кредитам пяти банков. Успешно прошли процедуру реализации имущества, сохранили единственное жильё."
               },
               {
-                title: "Сохранение единственного жилья",
-                description: "Помогли сохранить квартиру клиента при банкротстве с долгом 1,8 млн рублей.",
-                result: "Квартира сохранена"
+                name: "Елена К.",
+                debt: "1,5 млн ₽",
+                result: "Списано 100%",
+                time: "6 месяцев",
+                story: "Микрозаймы и долги по ЖКХ. Быстрая процедура без продажи имущества через реструктуризацию."
               },
               {
-                title: "Банкротство ИП",
-                description: "Списание долгов индивидуального предпринимателя на 4,2 млн рублей за 10 месяцев.",
-                result: "Долг списан: 4 200 000 ₽"
-              },
-              {
-                title: "Семейное банкротство",
-                description: "Комплексное банкротство супругов с общим долгом 3,7 млн рублей.",
-                result: "Долг списан: 3 700 000 ₽"
+                name: "Андрей П.",
+                debt: "4,2 млн ₽",
+                result: "Списано 100%",
+                time: "10 месяцев",
+                story: "Крупные долги перед банками и МФО. Сохранили автомобиль и квартиру, полностью списали долги."
               }
-            ].map((caseItem, index) => (
-              <Card key={index} className="animate-fade-in hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-xl">{caseItem.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{caseItem.description}</p>
-                  <div className="bg-primary/10 rounded-lg p-4">
-                    <p className="font-semibold text-primary">{caseItem.result}</p>
+            ].map((item, index) => (
+              <Card key={index} className="p-6 hover:shadow-xl transition">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Icon name="User" size={32} className="text-primary" />
                   </div>
-                </CardContent>
+                  <div>
+                    <h3 className="font-bold text-lg">{item.name}</h3>
+                    <div className="text-sm text-muted-foreground">Долг: {item.debt}</div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <div className="text-xs text-muted-foreground mb-1">Результат</div>
+                    <div className="font-bold text-green-600">{item.result}</div>
+                  </div>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <div className="text-xs text-muted-foreground mb-1">Срок</div>
+                    <div className="font-bold text-primary">{item.time}</div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm">{item.story}</p>
               </Card>
             ))}
           </div>
@@ -279,215 +358,283 @@ const Index = () => {
       </section>
 
       <section id="faq" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Частые вопросы</h2>
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {[
-                {
-                  question: "Кто может подать на банкротство?",
-                  answer: "Банкротом может быть признан гражданин, который не способен удовлетворить требования кредиторов на сумму от 500 000 рублей и просрочка составляет более 3 месяцев."
-                },
-                {
-                  question: "Сколько длится процедура банкротства?",
-                  answer: "В среднем процедура банкротства занимает от 6 до 12 месяцев. Точные сроки зависят от сложности дела и количества кредиторов."
-                },
-                {
-                  question: "Какое имущество можно сохранить?",
-                  answer: "Единственное жильё, личные вещи, предметы домашней обстановки (кроме предметов роскоши), профессиональное оборудование стоимостью до 100 МРОТ сохраняются за должником."
-                },
-                {
-                  question: "Можно ли выезжать за границу?",
-                  answer: "После введения процедуры реализации имущества выезд за границу ограничивается. По завершении процедуры ограничения снимаются."
-                },
-                {
-                  question: "Какие последствия банкротства?",
-                  answer: "В течение 5 лет нельзя повторно подать на банкротство, 3 года — занимать руководящие должности, 5 лет обязаны сообщать о банкротстве при получении кредита."
-                },
-                {
-                  question: "Нужно ли платить финансовому управляющему?",
-                  answer: "Да, вознаграждение финансового управляющего составляет 25 000 рублей единовременно и может быть дополнительно процент от реализованного имущества."
-                }
-              ].map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-6">
-                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Вопросы и ответы</h2>
+            <p className="text-xl text-muted-foreground">
+              Ответы на популярные вопросы о банкротстве
+            </p>
           </div>
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Кто может подать на банкротство?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Любой гражданин РФ, имеющий задолженность от 500 000 рублей и просрочку по платежам более 3 месяцев. Также можно подать при меньшей сумме долга, если очевидна невозможность его погашения.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Сколько длится процедура банкротства?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                В среднем процедура занимает от 6 до 12 месяцев. Сроки зависят от сложности дела, количества кредиторов и наличия имущества.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Что происходит с имуществом при банкротстве?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Единственное жильё всегда остаётся у должника. Остальное имущество может быть продано для погашения долгов, однако опытный юрист поможет сохранить максимум активов законными способами.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Какие долги не спишут при банкротстве?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Не подлежат списанию: алименты, возмещение вреда здоровью, текущие платежи по ЖКХ, заработная плата сотрудникам, долги полученные мошенническим путём.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Можно ли работать во время процедуры банкротства?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Да, вы можете продолжать работать. Единственное ограничение - доход может учитываться при расчёте плана реструктуризации, но это не запрещает трудовую деятельность.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="border rounded-lg px-6">
+              <AccordionTrigger className="text-left font-semibold">
+                Есть ли последствия после банкротства?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                В течение 5 лет после банкротства нужно сообщать о нём при получении новых кредитов. Также 3 года нельзя занимать руководящие должности в финансовых организациях. Других серьёзных ограничений нет.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
-      <section id="blog" className="py-20 bg-muted/30">
+      <section id="blog" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Блог</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Блог</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Полезные статьи о банкротстве и законах
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Как подготовиться к банкротству",
-                date: "15 марта 2024",
-                excerpt: "Пошаговая инструкция по подготовке к процедуре банкротства физических лиц..."
+                title: "Новый закон о банкротстве 2024: что изменилось?",
+                date: "15 октября 2024",
+                category: "Законодательство",
+                excerpt: "Обзор последних изменений в законе о банкротстве физических лиц и как они влияют на процедуру."
               },
               {
-                title: "Изменения в законе о банкротстве",
-                date: "10 марта 2024",
-                excerpt: "Обзор последних изменений в законодательстве о банкротстве граждан..."
+                title: "Как сохранить имущество при банкротстве",
+                date: "10 октября 2024",
+                category: "Советы",
+                excerpt: "Законные способы защиты имущества от взыскания в процессе банкротства."
               },
               {
-                title: "Мифы о банкротстве",
-                date: "5 марта 2024",
-                excerpt: "Разбираем самые распространённые заблуждения о процедуре банкротства..."
+                title: "ТОП-5 ошибок при самостоятельном банкротстве",
+                date: "5 октября 2024",
+                category: "Практика",
+                excerpt: "Разбираем типичные ошибки, которые допускают люди при попытке обанкротиться самостоятельно."
               }
-            ].map((post, index) => (
-              <Card key={index} className="animate-fade-in hover:shadow-lg transition-shadow cursor-pointer">
-                <CardHeader>
-                  <CardTitle className="text-xl">{post.title}</CardTitle>
-                  <CardDescription>{post.date}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                  <Button variant="link" className="p-0">
-                    Читать далее <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
-                </CardContent>
+            ].map((article, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition cursor-pointer">
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20" />
+                <div className="p-6">
+                  <div className="text-sm text-primary mb-2">{article.category}</div>
+                  <h3 className="text-xl font-bold mb-2 line-clamp-2">{article.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{article.excerpt}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground">{article.date}</span>
+                    <Icon name="ArrowRight" size={20} className="text-primary" />
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="consultation" className="py-20 bg-gradient-to-br from-primary to-primary/80 text-white">
+      <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-4">Получите бесплатную консультацию</h2>
-            <p className="text-center text-lg mb-8 opacity-90">
-              Оставьте заявку, и наш юрист свяжется с вами в течение 15 минут
-            </p>
-            <Card className="animate-fade-in">
-              <CardContent className="pt-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input
-                      placeholder="Ваше имя"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                    />
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-4xl font-bold mb-6">Свяжитесь с нами</h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Получите бесплатную консультацию и узнайте, как мы можем помочь решить вашу проблему с долгами
+              </p>
+              
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Phone" size={24} className="text-primary" />
                   </div>
                   <div>
-                    <Input
-                      type="tel"
-                      placeholder="Телефон"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      required
-                    />
+                    <div className="font-semibold mb-1">Телефон</div>
+                    <a href="tel:+79991234567" className="text-muted-foreground hover:text-primary transition">
+                      +7 (999) 123-45-67
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Mail" size={24} className="text-primary" />
                   </div>
                   <div>
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      required
-                    />
+                    <div className="font-semibold mb-1">Email</div>
+                    <a href="mailto:info@bankrotprofi.ru" className="text-muted-foreground hover:text-primary transition">
+                      info@bankrotprofi.ru
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="MapPin" size={24} className="text-primary" />
                   </div>
                   <div>
-                    <Textarea
-                      placeholder="Опишите вашу ситуацию"
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      rows={4}
-                    />
+                    <div className="font-semibold mb-1">Адрес</div>
+                    <div className="text-muted-foreground">
+                      г. Москва, ул. Примерная, д. 1<br />
+                      офис 101
+                    </div>
                   </div>
-                  <Button type="submit" className="w-full" size="lg">
-                    <Icon name="Send" size={20} className="mr-2" />
-                    Отправить заявку
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                  </p>
-                </form>
-              </CardContent>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Icon name="Clock" size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold mb-1">Режим работы</div>
+                    <div className="text-muted-foreground">
+                      Пн-Пт: 9:00 - 20:00<br />
+                      Сб-Вс: 10:00 - 18:00
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <img 
+                src="https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/files/f8b7bddd-8cc4-4c64-a456-2a596ad78386.jpg" 
+                alt="Наша команда"
+                className="rounded-2xl w-full shadow-xl"
+              />
+            </div>
+
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold mb-6">Записаться на консультацию</h3>
+              <form className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Ваше имя</label>
+                  <Input placeholder="Иван Иванов" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Телефон</label>
+                  <Input type="tel" placeholder="+7 (___) ___-__-__" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <Input type="email" placeholder="example@mail.ru" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Сумма долга</label>
+                  <Input placeholder="Например: 1 500 000 руб." />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Опишите ситуацию</label>
+                  <Textarea 
+                    placeholder="Расскажите кратко о вашей ситуации с долгами..."
+                    rows={4}
+                  />
+                </div>
+                <Button className="w-full" size="lg">
+                  Отправить заявку
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                </p>
+              </form>
             </Card>
           </div>
         </div>
       </section>
 
-      <section id="contacts" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Контакты</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Phone" size={28} className="text-primary" />
-                </div>
-                <h3 className="font-semibold text-lg mb-2">Телефон</h3>
-                <p className="text-muted-foreground">+7 (495) 123-45-67</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Mail" size={28} className="text-primary" />
-                </div>
-                <h3 className="font-semibold text-lg mb-2">Email</h3>
-                <p className="text-muted-foreground">info@bankruptcy.ru</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="MapPin" size={28} className="text-primary" />
-                </div>
-                <h3 className="font-semibold text-lg mb-2">Адрес</h3>
-                <p className="text-muted-foreground">Москва, ул. Примерная, д. 1</p>
-              </CardContent>
-            </Card>
+      <section className="py-16 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">Готовы избавиться от долгов?</h2>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Запишитесь на бесплатную консультацию прямо сейчас и узнайте, как мы поможем решить вашу проблему
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary" className="text-lg px-8">
+              Бесплатная консультация
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              Позвонить нам
+            </Button>
           </div>
         </div>
       </section>
 
-      <footer className="bg-secondary text-white py-12">
+      <footer className="bg-secondary text-secondary-foreground py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">БанкротЭксперт</h3>
-              <p className="text-sm opacity-80">Профессиональная помощь в банкротстве физических лиц</p>
+              <div className="text-2xl font-bold text-primary mb-4">БанкротПрофи</div>
+              <p className="text-sm opacity-80">
+                Профессиональная помощь в банкротстве физических лиц с 2012 года
+              </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Услуги</h4>
+              <h4 className="font-bold mb-4">Услуги</h4>
               <ul className="space-y-2 text-sm opacity-80">
-                <li><a href="#services" className="hover:opacity-100">Консультация</a></li>
-                <li><a href="#services" className="hover:opacity-100">Сопровождение</a></li>
-                <li><a href="#services" className="hover:opacity-100">Защита</a></li>
+                <li><a href="#services" className="hover:text-primary transition">Судебное банкротство</a></li>
+                <li><a href="#services" className="hover:text-primary transition">Под ключ</a></li>
+                <li><a href="#services" className="hover:text-primary transition">Консультации</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Информация</h4>
+              <h4 className="font-bold mb-4">Информация</h4>
               <ul className="space-y-2 text-sm opacity-80">
-                <li><a href="#faq" className="hover:opacity-100">FAQ</a></li>
-                <li><a href="#blog" className="hover:opacity-100">Блог</a></li>
-                <li><a href="#cases" className="hover:opacity-100">Кейсы</a></li>
+                <li><a href="#process" className="hover:text-primary transition">Этапы работы</a></li>
+                <li><a href="#prices" className="hover:text-primary transition">Цены</a></li>
+                <li><a href="#faq" className="hover:text-primary transition">FAQ</a></li>
+                <li><a href="#blog" className="hover:text-primary transition">Блог</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Контакты</h4>
+              <h4 className="font-bold mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm opacity-80">
-                <li>+7 (495) 123-45-67</li>
-                <li>info@bankruptcy.ru</li>
-                <li>Москва, ул. Примерная, д. 1</li>
+                <li>+7 (999) 123-45-67</li>
+                <li>info@bankrotprofi.ru</li>
+                <li>г. Москва, ул. Примерная, д. 1</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/20 pt-8 text-center text-sm opacity-80">
-            <p>© 2024 БанкротЭксперт. Все права защищены.</p>
+          <div className="border-t border-secondary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm opacity-60">
+              © 2024 БанкротПрофи. Все права защищены.
+            </div>
+            <div className="flex gap-6 text-sm opacity-60">
+              <a href="#" className="hover:text-primary transition">Политика конфиденциальности</a>
+              <a href="#" className="hover:text-primary transition">Пользовательское соглашение</a>
+            </div>
           </div>
         </div>
       </footer>
