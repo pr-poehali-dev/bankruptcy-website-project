@@ -6,22 +6,22 @@ const HeroSection = () => {
     <section id="hero" className="pt-32 pb-20 bg-gradient-to-br from-white to-secondary">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+          <div style={{ animation: "slideInLeft 0.8s ease-out" }}>
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6" style={{ animation: "fadeIn 0.6s ease-out" }}>
               <Icon name="Shield" size={16} />
               <span className="text-sm font-semibold">Официальная процедура</span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight" style={{ animation: "slideInLeft 0.8s ease-out 0.2s both" }}>
               Банкротство физических лиц под ключ
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>
               Избавьтесь от долгов законно. Полное юридическое сопровождение 
               на всех этапах процедуры банкротства. Работаем по всей России с 2015 года.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
               <Button size="lg" className="text-base">
                 <Icon name="Phone" size={18} className="mr-2" />
                 Бесплатная консультация
@@ -32,7 +32,7 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-6" style={{ animation: "fadeInUp 0.8s ease-out 0.8s both" }}>
               <div>
                 <p className="text-3xl font-bold text-primary mb-1">500+</p>
                 <p className="text-sm text-muted-foreground">Успешных дел</p>
@@ -48,7 +48,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:block" style={{ animation: "slideInRight 0.8s ease-out 0.3s both" }}>
             <div className="bg-white rounded-2xl shadow-2xl p-8">
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Проверьте, подходит ли вам банкротство
