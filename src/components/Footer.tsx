@@ -11,8 +11,8 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <Icon name="Scale" size={28} className="text-primary" />
               <div>
-                <h3 className="text-lg font-bold">Банкротство.РФ</h3>
-                <p className="text-xs text-muted-foreground">Юридические услуги</p>
+                <h3 className="text-lg font-bold">ВЕРНОЕ РЕШЕНИЕ</h3>
+                <p className="text-xs text-muted-foreground">Центр юридической защиты</p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
@@ -76,8 +76,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} Банкротство.РФ. Все права защищены.</p>
-          <p className="mt-2">Юридические услуги оказываются ООО "Юридическая компания"</p>
+          <p>© {currentYear} Центр юридической защиты "ВЕРНОЕ РЕШЕНИЕ". Все права защищены.</p>
+          <p className="mt-2">Юридические услуги оказываются ООО "Центр юридической защиты ВЕРНОЕ РЕШЕНИЕ"</p>
         </div>
       </div>
     </footer>

@@ -33,8 +33,8 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <Icon name="Scale" size={32} className="text-primary" />
             <div>
-              <h1 className="text-xl font-bold text-foreground">Банкротство.РФ</h1>
-              <p className="text-xs text-muted-foreground">Юридические услуги</p>
+              <h1 className="text-xl font-bold text-foreground">ВЕРНОЕ РЕШЕНИЕ</h1>
+              <p className="text-xs text-muted-foreground">Центр юридической защиты</p>
             </div>
           </div>
 
