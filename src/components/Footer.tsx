@@ -23,7 +23,7 @@ const Footer = () => {
               <a href="tel:+79613890132" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Phone" size={20} />
               </a>
-              <a href="mailto:tlt@meraprava.ru" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:tarhanova.ev@mail.ru" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Mail" size={20} />
               </a>
               <a href="https://t.me/+79613890132" className="text-muted-foreground hover:text-primary transition-colors">
@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Icon name="Mail" size={16} className="mt-1 text-primary" />
-                <p className="text-muted-foreground">tlt@meraprava.ru</p>
+                <p className="text-muted-foreground">tarhanova.ev@mail.ru</p>
               </li>
               <li className="flex items-start space-x-2">
                 <Icon name="MapPin" size={16} className="mt-1 text-primary" />
