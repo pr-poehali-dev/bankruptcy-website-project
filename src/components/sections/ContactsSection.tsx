@@ -20,15 +20,15 @@ const ContactsSection = () => {
       icon: "Phone",
       title: "Телефон",
       content: "+7 (961) 389-01-32",
-      subContent: "Работаем 24/7, без выходных",
+      subContent: "Пн-Сб 10:00-19:00 без перерыва",
       action: "tel:+79613890132"
     },
     {
       icon: "Mail",
       title: "Email",
-      content: "tlt@meraprava.ru",
+      content: "tarhanova.ev@mail.ru",
       subContent: "Ответим в течение часа",
-      action: "mailto:tlt@meraprava.ru"
+      action: "mailto:tarhanova.ev@mail.ru"
     },
     {
       icon: "MapPin",
@@ -40,8 +40,8 @@ const ContactsSection = () => {
     {
       icon: "Clock",
       title: "График работы",
-      content: "Понедельник - Воскресенье",
-      subContent: "Круглосуточно",
+      content: "Понедельник - Суббота",
+      subContent: "10:00 - 19:00 без перерыва",
       action: null
     }
   ];

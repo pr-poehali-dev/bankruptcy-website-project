@@ -53,7 +53,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-3">
             <div className="text-right">
               <p className="text-sm font-semibold text-foreground">+7 (961) 389-01-32</p>
-              <p className="text-xs text-muted-foreground">Работаем 24/7</p>
+              <p className="text-xs text-muted-foreground">Пн-Сб 10:00-19:00</p>
             </div>
             <Button size="sm" onClick={() => setIsModalOpen(true)}>Консультация</Button>
           </div>
@@ -79,7 +79,7 @@ const Header = () => {
             ))}
             <div className="pt-4 border-t border-border">
               <p className="text-sm font-semibold text-foreground">+7 (961) 389-01-32</p>
-              <p className="text-xs text-muted-foreground mb-3">Работаем 24/7</p>
+              <p className="text-xs text-muted-foreground mb-3">Пн-Сб 10:00-19:00</p>
               <Button className="w-full" onClick={() => setIsModalOpen(true)}>Консультация</Button>
             </div>
           </nav>

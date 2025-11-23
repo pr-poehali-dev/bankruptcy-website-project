@@ -60,7 +60,7 @@ const Footer = () => {
                 <Icon name="Phone" size={16} className="mt-1 text-primary" />
                 <div>
                   <p className="font-semibold">+7 (961) 389-01-32</p>
-                  <p className="text-xs text-muted-foreground">Работаем 24/7</p>
+                  <p className="text-xs text-muted-foreground">Пн-Сб 10:00-19:00</p>
                 </div>
               </li>
               <li className="flex items-start space-x-2">
