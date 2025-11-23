@@ -9,19 +9,19 @@ const FloatingContactButton = () => {
     {
       name: "WhatsApp",
       icon: "MessageCircle",
-      href: "https://wa.me/79000000000",
+      href: "https://wa.me/79613890132",
       color: "bg-[#25D366] hover:bg-[#20BD5A]",
     },
     {
       name: "Telegram",
       icon: "Send",
-      href: "https://t.me/username",
+      href: "https://t.me/+79613890132",
       color: "bg-[#0088cc] hover:bg-[#0077b5]",
     },
     {
       name: "Телефон",
       icon: "Phone",
-      href: "tel:+79000000000",
+      href: "tel:+79613890132",
       color: "bg-primary hover:bg-primary/90",
     },
   ];

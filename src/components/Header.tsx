@@ -52,7 +52,7 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center space-x-3">
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">+7 (495) 123-45-67</p>
+              <p className="text-sm font-semibold text-foreground">+7 (961) 389-01-32</p>
               <p className="text-xs text-muted-foreground">Работаем 24/7</p>
             </div>
             <Button size="sm" onClick={() => setIsModalOpen(true)}>Консультация</Button>

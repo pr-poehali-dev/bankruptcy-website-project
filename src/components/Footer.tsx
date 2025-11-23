@@ -20,13 +20,13 @@ const Footer = () => {
               Работаем по всей России с 2015 года.
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+79613890132" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Phone" size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:tlt@meraprava.ru" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Mail" size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://t.me/+79613890132" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="MessageCircle" size={20} />
               </a>
             </div>
