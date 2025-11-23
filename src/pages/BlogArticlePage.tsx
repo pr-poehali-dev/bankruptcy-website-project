@@ -76,30 +76,30 @@ const BlogArticlePage = () => {
                         return `<p class="font-bold text-foreground my-3">${line.slice(2, -2)}</p>`;
                       }
                       if (line.startsWith('- ')) {
-                        return `<li class="ml-6 my-2 text-muted-foreground">${line.slice(2)}</li>`;
+                        return `<li class="ml-6 my-2 text-foreground">${line.slice(2)}</li>`;
                       }
                       if (line.startsWith('✅ ')) {
-                        return `<p class="flex items-start my-2"><span class="text-green-600 mr-2 text-xl">✅</span><span class="text-muted-foreground">${line.slice(2)}</span></p>`;
+                        return `<p class="flex items-start my-2"><span class="text-green-600 mr-2 text-xl">✅</span><span class="text-foreground">${line.slice(2)}</span></p>`;
                       }
                       if (line.startsWith('❌ ')) {
-                        return `<p class="flex items-start my-2"><span class="text-red-600 mr-2 text-xl">❌</span><span class="text-muted-foreground">${line.slice(2)}</span></p>`;
+                        return `<p class="flex items-start my-2"><span class="text-red-600 mr-2 text-xl">❌</span><span class="text-foreground">${line.slice(2)}</span></p>`;
                       }
                       if (line.startsWith('> ')) {
-                        return `<blockquote class="border-l-4 border-primary pl-4 italic my-4 text-muted-foreground">${line.slice(2)}</blockquote>`;
+                        return `<blockquote class="border-l-4 border-primary bg-primary/5 pl-4 py-2 italic my-4 text-foreground rounded-r">${line.slice(2)}</blockquote>`;
                       }
-                      if (line.startsWith('```')) {
-                        return '<pre class="bg-secondary p-4 rounded-lg my-4 overflow-x-auto"><code>';
+                      if (line.startsWith('─────')) {
+                        return `<div class="my-2 text-center text-muted-foreground">${line}</div>`;
                       }
-                      if (line === '```') {
-                        return '</code></pre>';
+                      if (line.match(/^[А-Яа-я\s]+:\s+[-\d\s₽,.()]+$/)) {
+                        return `<div class="bg-primary/5 border-l-4 border-primary px-4 py-2 my-1 font-mono text-sm text-foreground rounded-r">${line}</div>`;
                       }
                       if (line.startsWith('---')) {
-                        return '<hr class="my-8 border-t-2 border-secondary" />';
+                        return '<hr class="my-8 border-t-2 border-primary/20" />';
                       }
                       if (line.trim() === '') {
                         return '<br />';
                       }
-                      return `<p class="my-3 text-muted-foreground leading-relaxed">${line}</p>`;
+                      return `<p class="my-3 text-foreground leading-relaxed">${line}</p>`;
                     })
                     .join('')
                 }}
