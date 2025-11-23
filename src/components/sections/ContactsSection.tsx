@@ -211,22 +211,49 @@ const ContactsSection = () => {
           </div>
         </div>
 
-        <div className="bg-secondary rounded-xl p-8 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
+        <div className="bg-secondary rounded-xl p-8">
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-foreground mb-4 text-center">
               Посетите наш офис
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-6 text-center">
               Личные встречи проводятся по предварительной записи. 
               Позвоните нам или оставьте заявку на сайте, чтобы согласовать удобное время.
             </p>
-            <div className="bg-white rounded-lg p-4 inline-block">
-              <div className="flex items-center space-x-3">
-                <Icon name="MapPin" size={24} className="text-primary" />
-                <div className="text-left">
-                  <p className="font-semibold text-foreground">Самарская обл., г. Тольятти, ул. Юбилейная, д. 1 А, офис 332</p>
-                  <p className="text-sm text-muted-foreground">Центр города, удобная транспортная развязка</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg p-6">
+                <div className="flex items-start space-x-3 mb-4">
+                  <Icon name="MapPin" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-foreground mb-1">Самарская обл., г. Тольятти, ул. Юбилейная, д. 1 А, офис 332</p>
+                    <p className="text-sm text-muted-foreground">Центр города, удобная транспортная развязка</p>
+                  </div>
                 </div>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <div className="flex items-center space-x-2">
+                    <Icon name="Phone" size={16} className="text-primary" />
+                    <span>+7 (961) 389-01-32</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Icon name="Mail" size={16} className="text-primary" />
+                    <span>tlt@meraprava.ru</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Icon name="Clock" size={16} className="text-primary" />
+                    <span>Круглосуточно, без выходных</span>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gray-200 rounded-lg overflow-hidden h-64 lg:h-auto">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=49.348283%2C53.531454&mode=search&oid=1236097093&ol=biz&z=17"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  className="w-full h-full min-h-[300px]"
+                  allowFullScreen
+                  title="Карта офиса"
+                />
               </div>
             </div>
           </div>
