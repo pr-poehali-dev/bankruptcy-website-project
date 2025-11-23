@@ -33,8 +33,8 @@ const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
               <Button size="lg" className="text-base" onClick={() => setIsModalOpen(true)}>
-                <Icon name="Phone" size={18} className="mr-2" />
-                Бесплатная консультация
+                <Icon name="PhoneCall" size={18} className="mr-2" />
+                Заказать обратный звонок
               </Button>
               <Button size="lg" variant="outline" className="text-base" onClick={scrollToCalculator}>
                 <Icon name="Calculator" size={18} className="mr-2" />
