@@ -1,63 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { useNavigate } from "react-router-dom";
+import { blogArticles } from "@/data/blogArticles";
 
 const BlogSection = () => {
-  const articles = [
-    {
-      category: "Инструкции",
-      title: "Пошаговая инструкция по банкротству физических лиц в 2024 году",
-      excerpt: "Подробное руководство о том, как самостоятельно или с помощью юриста пройти процедуру банкротства. Все этапы от подачи заявления до списания долгов.",
-      image: "📋",
-      date: "15 октября 2024",
-      readTime: "10 мин",
-      views: "2.5K"
-    },
-    {
-      category: "Законодательство",
-      title: "Изменения в законе о банкротстве с 2024 года: что нужно знать",
-      excerpt: "Обзор ключевых изменений в законодательстве о банкротстве физических лиц. Как новые правила влияют на процедуру и какие появились возможности.",
-      image: "⚖️",
-      date: "12 октября 2024",
-      readTime: "8 мин",
-      views: "1.8K"
-    },
-    {
-      category: "Практика",
-      title: "Как защитить единственное жилье при банкротстве",
-      excerpt: "Юридические способы сохранения квартиры или дома в процедуре банкротства. Практические советы от экспертов с примерами из судебной практики.",
-      image: "🏠",
-      date: "8 октября 2024",
-      readTime: "7 мин",
-      views: "3.2K"
-    },
-    {
-      category: "FAQ",
-      title: "Банкротство ИП и самозанятых: особенности процедуры",
-      excerpt: "Чем отличается банкротство индивидуальных предпринимателей от банкротства обычных физических лиц. Разбираем нюансы и подводные камни.",
-      image: "💼",
-      date: "5 октября 2024",
-      readTime: "12 мин",
-      views: "1.5K"
-    },
-    {
-      category: "Кейсы",
-      title: "Реальная история: как мы списали 3 миллиона рублей долгов",
-      excerpt: "Подробный разбор реального дела нашего клиента. От первой консультации до решения суда о списании всех долгов. Трудности и их решения.",
-      image: "✅",
-      date: "1 октября 2024",
-      readTime: "15 мин",
-      views: "4.1K"
-    },
-    {
-      category: "Советы",
-      title: "5 ошибок при банкротстве, которые приводят к отказу суда",
-      excerpt: "Самые распространенные ошибки должников при процедуре банкротства. Как их избежать и повысить шансы на успешное списание долгов.",
-      image: "⚠️",
-      date: "28 сентября 2024",
-      readTime: "9 мин",
-      views: "2.9K"
-    }
-  ];
+  const navigate = useNavigate();
+  
+  const articles = blogArticles.slice(0, 6);
 
   const categories = [
     { name: "Все статьи", count: 42, active: true },
@@ -99,13 +48,14 @@ const BlogSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {articles.map((article, index) => (
+          {articles.map((article) => (
             <article 
-              key={index}
-              className="bg-white rounded-xl overflow-hidden hover:shadow-xl transition-shadow group"
+              key={article.id}
+              className="bg-white rounded-xl overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer"
+              onClick={() => navigate(`/blog/${article.id}`)}
             >
-              <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 flex items-center justify-center text-6xl">
-                {article.image}
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 flex items-center justify-center">
+                <Icon name="FileText" size={64} className="text-primary/40" />
               </div>
 
               <div className="p-6">
@@ -113,15 +63,9 @@ const BlogSection = () => {
                   <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
                     {article.category}
                   </span>
-                  <div className="flex items-center space-x-3 text-xs text-muted-foreground">
-                    <div className="flex items-center space-x-1">
-                      <Icon name="Clock" size={12} />
-                      <span>{article.readTime}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Icon name="Eye" size={12} />
-                      <span>{article.views}</span>
-                    </div>
+                  <div className="flex items-center space-x-1 text-xs text-muted-foreground">
+                    <Icon name="Clock" size={12} />
+                    <span>{article.readTime}</span>
                   </div>
                 </div>
 
