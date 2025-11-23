@@ -78,7 +78,7 @@ const Header = () => {
               </button>
             ))}
             <div className="pt-4 border-t border-border">
-              <p className="text-sm font-semibold text-foreground">+7 (495) 123-45-67</p>
+              <p className="text-sm font-semibold text-foreground">+7 (961) 389-01-32</p>
               <p className="text-xs text-muted-foreground mb-3">Работаем 24/7</p>
               <Button className="w-full" onClick={() => setIsModalOpen(true)}>Консультация</Button>
             </div>

@@ -19,21 +19,21 @@ const ContactsSection = () => {
     {
       icon: "Phone",
       title: "Телефон",
-      content: "+7 (495) 123-45-67",
+      content: "+7 (961) 389-01-32",
       subContent: "Работаем 24/7, без выходных",
-      action: "tel:+74951234567"
+      action: "tel:+79613890132"
     },
     {
       icon: "Mail",
       title: "Email",
-      content: "info@bankrotstvo.ru",
+      content: "tlt@meraprava.ru",
       subContent: "Ответим в течение часа",
-      action: "mailto:info@bankrotstvo.ru"
+      action: "mailto:tlt@meraprava.ru"
     },
     {
       icon: "MapPin",
       title: "Адрес офиса",
-      content: "г. Москва, ул. Примерная, д. 1",
+      content: "Самарская обл., г. Тольятти, ул. Юбилейная, д. 1 А, офис 332",
       subContent: "Приём по предварительной записи",
       action: null
     },
@@ -224,8 +224,8 @@ const ContactsSection = () => {
               <div className="flex items-center space-x-3">
                 <Icon name="MapPin" size={24} className="text-primary" />
                 <div className="text-left">
-                  <p className="font-semibold text-foreground">г. Москва, ул. Примерная, д. 1</p>
-                  <p className="text-sm text-muted-foreground">м. Арбатская, 5 минут пешком</p>
+                  <p className="font-semibold text-foreground">Самарская обл., г. Тольятти, ул. Юбилейная, д. 1 А, офис 332</p>
+                  <p className="text-sm text-muted-foreground">Центр города, удобная транспортная развязка</p>
                 </div>
               </div>
             </div>

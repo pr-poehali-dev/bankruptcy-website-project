@@ -59,17 +59,17 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <Icon name="Phone" size={16} className="mt-1 text-primary" />
                 <div>
-                  <p className="font-semibold">+7 (495) 123-45-67</p>
+                  <p className="font-semibold">+7 (961) 389-01-32</p>
                   <p className="text-xs text-muted-foreground">Работаем 24/7</p>
                 </div>
               </li>
               <li className="flex items-start space-x-2">
                 <Icon name="Mail" size={16} className="mt-1 text-primary" />
-                <p className="text-muted-foreground">info@bankrotstvo.ru</p>
+                <p className="text-muted-foreground">tlt@meraprava.ru</p>
               </li>
               <li className="flex items-start space-x-2">
                 <Icon name="MapPin" size={16} className="mt-1 text-primary" />
-                <p className="text-muted-foreground">г. Москва, ул. Примерная, д. 1</p>
+                <p className="text-muted-foreground">Самарская область, г. Тольятти, ул. Юбилейная, д. 1 А, офис 332</p>
               </li>
             </ul>
           </div>
