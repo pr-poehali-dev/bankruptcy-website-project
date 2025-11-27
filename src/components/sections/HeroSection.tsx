@@ -52,7 +52,7 @@ const HeroSection = () => {
                 <p className="text-sm text-muted-foreground">Выигранных дел</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">9 лет</p>
+                <p className="text-3xl font-bold text-primary mb-1">5 лет</p>
                 <p className="text-sm text-muted-foreground">На рынке</p>
               </div>
             </div>
