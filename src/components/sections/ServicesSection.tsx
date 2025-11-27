@@ -88,9 +88,7 @@ const ServicesSection = () => {
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Полный спектр юридических услуг
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Профессиональная помощь на всех этапах процедуры банкротства физических лиц
-          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Профессиональная помощь на всех этапах процедуры банкротства физических лиц</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
