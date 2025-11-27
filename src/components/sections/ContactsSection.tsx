@@ -26,9 +26,9 @@ const ContactsSection = () => {
     {
       icon: "Mail",
       title: "Email",
-      content: "tarhanova.ev@mail.ro",
+      content: "tarhanova.ev@mail.ru",
       subContent: "Ответим в течение часа",
-      action: "mailto:tarhanova.ev@mail.ro"
+      action: "mailto:tarhanova.ev@mail.ru"
     },
     {
       icon: "MapPin",
