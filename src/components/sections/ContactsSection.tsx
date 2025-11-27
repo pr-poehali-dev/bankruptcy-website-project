@@ -249,7 +249,7 @@ const ContactsSection = () => {
               </div>
               <div className="bg-gray-200 rounded-lg overflow-hidden h-64 lg:h-auto">
                 <iframe
-                  src="https://yandex.ru/map-widget/v1/?ll=49.348283%2C53.531454&mode=search&oid=1236097093&ol=biz&z=17"
+                  src="https://yandex.ru/map-widget/v1/?ll=49.283876%2C53.535882&z=17&pt=49.283876,53.535882,pm2rdm"
                   width="100%"
                   height="100%"
                   frameBorder="0"
