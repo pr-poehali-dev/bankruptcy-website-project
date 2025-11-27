@@ -48,7 +48,7 @@ const HeroSection = () => {
                 <p className="text-sm text-muted-foreground">Успешных дел</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">98%</p>
+                <p className="text-3xl font-bold text-primary mb-1">100%</p>
                 <p className="text-sm text-muted-foreground">Выигранных дел</p>
               </div>
               <div>
