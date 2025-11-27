@@ -14,20 +14,6 @@ const ContactsPage = () => {
             Свяжитесь с нами удобным способом. Мы всегда готовы помочь!
           </p>
         </div>
-        
-        <div className="container mx-auto px-4 mb-12">
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="w-full h-[500px]">
-              <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=49.283876%2C53.535882&z=17&l=map&pt=49.283876,53.535882,pm2rdm"
-                width="100%"
-                height="500"
-                frameBorder="0"
-                title="Карта офиса МЕРА ПРАВА"
-              ></iframe>
-            </div>
-          </div>
-        </div>
 
         <ContactsSection />
         <FAQSection />
