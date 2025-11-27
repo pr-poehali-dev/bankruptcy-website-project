@@ -70,7 +70,7 @@ const AboutPage = () => {
               <Icon name="Users" size={16} />
               <span className="text-sm font-semibold">О компании</span>
             </div>
-            <h1 className="text-5xl font-bold text-foreground mb-6">Юридическая компания МЕРА ПРАВА</h1>
+            <h1 className="text-5xl font-bold text-foreground mb-6">Юридическая компания ВЕРНОЕ РЕШЕНИЕ</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Мы предоставляем профессиональные юридические услуги в Тольятти с 2010 года. 
               Наша миссия — защита ваших прав и интересов на всех этапах правовых отношений.
