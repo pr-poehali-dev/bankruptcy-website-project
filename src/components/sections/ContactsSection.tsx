@@ -236,7 +236,7 @@ const ContactsSection = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Icon name="Mail" size={16} className="text-primary" />
-                    <span>tlt@meraprava.ru</span>
+                    <span>tarhanova.ev@mail.ru</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Icon name="Clock" size={16} className="text-primary" />
