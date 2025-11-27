@@ -19,7 +19,7 @@ const ContactsPage = () => {
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="w-full h-[500px]">
               <iframe
-                src="https://yandex.ru/map-widget/v1/?um=constructor%3A8c7e6f5d4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7&amp;source=constructor"
+                src="https://yandex.ru/map-widget/v1/?ll=49.283876%2C53.535882&z=17&l=map&pt=49.283876,53.535882,pm2rdm"
                 width="100%"
                 height="500"
                 frameBorder="0"
