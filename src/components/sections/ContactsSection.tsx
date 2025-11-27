@@ -240,7 +240,10 @@ const ContactsSection = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Icon name="Clock" size={16} className="text-primary" />
-                    <span>Круглосуточно, без выходных</span>
+                    <span>График работы
+Понедельник - Суббота
+
+10:00 - 19:00 без перерывов</span>
                   </div>
                 </div>
               </div>
