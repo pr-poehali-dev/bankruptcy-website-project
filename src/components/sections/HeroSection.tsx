@@ -44,7 +44,7 @@ const HeroSection = () => {
 
             <div className="grid grid-cols-3 gap-6" style={{ animation: "fadeInUp 0.8s ease-out 0.8s both" }}>
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">500+</p>
+                <p className="text-3xl font-bold text-primary mb-1">800+</p>
                 <p className="text-sm text-muted-foreground">Успешных дел</p>
               </div>
               <div>
