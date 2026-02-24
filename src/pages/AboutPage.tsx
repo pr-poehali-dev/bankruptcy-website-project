@@ -9,21 +9,40 @@ const AboutPage = () => {
       role: "Главный юрист",
       experience: "15+ лет опыта",
       specialization: "Семейное право, наследство",
-      description: "Специализируется на сложных семейных спорах и делах о наследстве. Более 500 выигранных дел."
+      description: "Специализируется на сложных семейных спорах и делах о наследстве. Более 500 выигранных дел.",
+      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/c7d9e7b1-dfb5-4455-b485-815897c5f791.jpg"
     },
     {
-      name: "Иванов Сергей Петрович",
-      role: "Ведущий юрист",
+      name: "Чернова Анастасия Вячеславовна",
+      role: "Арбитражный управляющий",
       experience: "12+ лет опыта",
-      specialization: "Гражданское право",
-      description: "Эксперт в области гражданского права и судебных разбирательств. Более 400 успешных дел."
+      specialization: "Арбитражное управление, экономика",
+      description: "Арбитражный управляющий, юрист и экономист. Эксперт в области банкротства и антикризисного управления.",
+      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/0ee9a7dd-2ae0-4e7e-ac31-95bc1797e5bb.jpg"
     },
     {
-      name: "Петрова Анна Михайловна",
+      name: "Филимонов",
+      role: "Арбитражный управляющий",
+      experience: "10+ лет опыта",
+      specialization: "Арбитражное управление",
+      description: "Специалист по арбитражному управлению и сопровождению процедур банкротства.",
+      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/a536154a-174f-4e4b-bce2-e885e99601c7.jpg"
+    },
+    {
+      name: "Пронин",
+      role: "Юрист",
+      experience: "8+ лет опыта",
+      specialization: "Гражданское право",
+      description: "Специалист по гражданским делам и судебному представительству.",
+      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/57b7428e-ded9-490e-994e-8c2becc80f52.jpg"
+    },
+    {
+      name: "Юрист",
       role: "Юрист-консультант",
       experience: "8+ лет опыта",
       specialization: "Жилищное право",
-      description: "Специалист по жилищным спорам и сделкам с недвижимостью. Более 300 довольных клиентов."
+      description: "Специалист по жилищным спорам и сделкам с недвижимостью.",
+      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/a84aeb5f-1d08-47aa-ab29-3ba9519da42f.jpg"
     }
   ];
 
@@ -100,8 +119,12 @@ const AboutPage = () => {
                   key={index}
                   className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
                 >
-                  <div className="bg-gradient-to-br from-primary to-primary/80 h-48 flex items-center justify-center">
-                    <Icon name="User" size={80} className="text-white/90" />
+                  <div className="h-64 overflow-hidden">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-foreground mb-2">{member.name}</h3>
