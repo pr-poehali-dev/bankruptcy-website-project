@@ -5,12 +5,13 @@ import Icon from "@/components/ui/icon";
 const AboutPage = () => {
   const team = [
     {
-      name: "Тарханова Елена Владимировна",
+      name: "Тарханова Евгения Олеговна",
       role: "Главный юрист",
-      experience: "15+ лет опыта",
-      specialization: "Семейное право, наследство",
-      description: "Специализируется на сложных семейных спорах и делах о наследстве. Более 500 выигранных дел.",
-      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/c7d9e7b1-dfb5-4455-b485-815897c5f791.jpg"
+      experience: "10 лет опыта",
+      specialization: "Банкротство физических лиц",
+      description: "Главный юрист компании по банкротству физлиц. Опыт работы 10 лет.",
+      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/c7d9e7b1-dfb5-4455-b485-815897c5f791.jpg",
+      photoPosition: "object-center"
     },
     {
       name: "Чернова Анастасия Вячеславовна",
@@ -123,7 +124,7 @@ const AboutPage = () => {
                     <img
                       src={member.photo}
                       alt={member.name}
-                      className="w-full h-full object-cover object-top"
+                      className={`w-full h-full object-cover ${member.photoPosition || "object-top"}`}
                     />
                   </div>
                   <div className="p-6">
