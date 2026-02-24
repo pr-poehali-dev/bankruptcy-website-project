@@ -22,7 +22,7 @@ def handler(event: dict, context) -> dict:
     email = body.get("email", "")
     message = body.get("message", "")
 
-    smtp_host = "smtp.mail.ru"
+    smtp_host = "smtp.yandex.ru"
     smtp_port = 465
     smtp_user = "tlt@meraprava.ru"
     smtp_password = os.environ["SMTP_PASSWORD"]
