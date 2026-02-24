@@ -26,9 +26,9 @@ const ContactsSection = () => {
     {
       icon: "Mail",
       title: "Email",
-      content: "tlt@meraprava.ru",
+      content: "tarhanova.ev@mail.ru",
       subContent: "Ответим в течение часа",
-      action: "mailto:tlt@meraprava.ru"
+      action: "mailto:tarhanova.ev@mail.ru"
     },
     {
       icon: "MapPin",
@@ -236,7 +236,7 @@ const ContactsSection = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Icon name="Mail" size={16} className="text-primary" />
-                    <span>tlt@meraprava.ru</span>
+                    <span>tarhanova.ev@mail.ru</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Icon name="Clock" size={16} className="text-primary" />
