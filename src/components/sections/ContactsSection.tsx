@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
 
+const SEND_EMAIL_URL = "https://functions.poehali.dev/b338ad60-bed5-4a23-97f2-01990646da61";
+
 const ContactsSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,10 +11,26 @@ const ContactsSection = () => {
     email: "",
     message: ""
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setStatus("loading");
+    try {
+      const res = await fetch(SEND_EMAIL_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const contacts = [
@@ -153,10 +171,23 @@ const ContactsSection = () => {
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                <Icon name="Send" size={18} className="mr-2" />
-                Отправить заявку
+              <Button type="submit" size="lg" className="w-full" disabled={status === "loading"}>
+                <Icon name={status === "loading" ? "Loader" : "Send"} size={18} className="mr-2" />
+                {status === "loading" ? "Отправляем..." : "Отправить заявку"}
               </Button>
+
+              {status === "success" && (
+                <div className="flex items-center space-x-2 text-green-600 bg-green-50 rounded-lg p-3">
+                  <Icon name="CheckCircle2" size={18} />
+                  <span className="text-sm font-medium">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</span>
+                </div>
+              )}
+              {status === "error" && (
+                <div className="flex items-center space-x-2 text-red-600 bg-red-50 rounded-lg p-3">
+                  <Icon name="AlertCircle" size={18} />
+                  <span className="text-sm font-medium">Ошибка отправки. Позвоните нам: +7 (961) 389-01-32</span>
+                </div>
+              )}
 
               <p className="text-xs text-muted-foreground text-center">
                 Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
