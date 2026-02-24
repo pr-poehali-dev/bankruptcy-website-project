@@ -25,7 +25,7 @@ def handler(event: dict, context) -> dict:
     smtp_host = "smtp.yandex.ru"
     smtp_port = 465
     smtp_user = "tlt@meraprava.ru"
-    smtp_password = os.environ.get("SMTP_PASSWORD", "jcoxoxgddoaffpsx")
+    smtp_password = os.environ.get("SMTP_PASSWORD", "txafufzpijhvnozf")
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"Новая заявка с сайта — {name}"
