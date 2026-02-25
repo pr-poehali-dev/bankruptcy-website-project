@@ -13,7 +13,7 @@ const ServicesSection = () => {
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Клиент сам выбирает комфортную рассрочку стоимости банкротства
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Профессиональная помощь на всех этапах процедуры банкротства физических лиц</p>
+
         </div>
 
         <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white">
