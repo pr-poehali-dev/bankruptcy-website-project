@@ -6,7 +6,7 @@ const CasesSection = () => {
       name: "Сергей М.",
       age: 42,
       city: "Москва",
-      debt: "2 450 000",
+      debt: "649 000",
       result: "Списано 100% долгов",
       duration: "4 месяца",
       image: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/3b28f32f-cf6a-40d8-90d0-2bbb0db1610e.jpg",
