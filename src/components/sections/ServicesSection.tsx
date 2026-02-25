@@ -8,7 +8,7 @@ const ServicesSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4">
             <Icon name="Briefcase" size={16} />
-            <span className="text-sm font-semibold">Наши рассрочки</span>
+            <span className="text-sm font-semibold">Стоимость банкротства</span>
           </div>
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Клиент сам выбирает комфортную рассрочку стоимости банкротства
