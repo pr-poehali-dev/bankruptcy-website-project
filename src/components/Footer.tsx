@@ -38,7 +38,7 @@ const Footer = () => {
               <li><a href="#services" className="hover:text-primary transition-colors">Банкротство физических лиц</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Списание долгов</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Защита имущества</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Юридическое сопровождение</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Юридическая защита по наследственным, семейным и по всем видам дел</a></li>
             </ul>
           </div>
 
