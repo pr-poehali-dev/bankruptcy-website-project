@@ -21,7 +21,7 @@ const CasesSection = () => {
       name: "Элеонора К.",
       age: 39,
       city: "Санкт-Петербург",
-      debt: "1 780 000",
+      debt: "1 625 000",
       result: "Списано 100% долгов",
       duration: "8 месяцев",
       image: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/09b8ecfc-f7fc-4003-a9a2-02498c361091.jpg",
