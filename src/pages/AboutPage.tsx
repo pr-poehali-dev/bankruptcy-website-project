@@ -38,7 +38,7 @@ const AboutPage = () => {
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/57b7428e-ded9-490e-994e-8c2becc80f52.jpg"
     },
     {
-      name: "Юрист",
+      name: "Николаева Татьяна Владимировна",
       role: "Юрист-консультант",
       experience: "8+ лет опыта",
       specialization: "Жилищное право",
