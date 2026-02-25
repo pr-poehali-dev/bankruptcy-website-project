@@ -91,7 +91,7 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">Регистрация на территории Российской Федерации</p>
-                    <p className="text-sm text-muted-foreground">Для погашения всех обязательств</p>
+                    <p className="text-sm text-muted-foreground">По закону подходит и временная регистрация</p>
                   </div>
                 </div>
               </div>
