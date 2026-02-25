@@ -66,7 +66,7 @@ const CasesSection = () => {
 
   const stats = [
     { icon: "Users", value: "7000+", label: "Довольных клиентов" },
-    { icon: "TrendingUp", value: "98%", label: "Выигранных дел" },
+    { icon: "TrendingUp", value: "100%", label: "Выигранных дел" },
     { icon: "DollarSign", value: "2.5 млрд ₽", label: "Списанных долгов" },
     { icon: "Clock", value: "7 мес", label: "Средний срок" }
   ];
