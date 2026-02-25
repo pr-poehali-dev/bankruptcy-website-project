@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <Icon name="Scale" size={28} className="text-primary" />
               <div>
-                <h3 className="text-lg font-bold text-white">ВЕРНОЕ РЕШЕНИЕ</h3>
+                <h3 className="text-lg font-bold text-[#ffffff]">ВЕРНОЕ РЕШЕНИЕ</h3>
                 <p className="text-xs text-slate-400">Центр юридической защиты</p>
               </div>
             </div>
