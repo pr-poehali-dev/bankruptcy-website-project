@@ -36,7 +36,7 @@ const CasesSection = () => {
       name: "Максим Ш.",
       age: 39,
       city: "Екатеринбург",
-      debt: "3 200 000",
+      debt: "2 667 000",
       result: "Списано 100% долгов",
       duration: "7 месяцев",
       image: "👨‍🔧",
