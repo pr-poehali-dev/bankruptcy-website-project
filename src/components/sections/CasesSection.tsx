@@ -9,7 +9,7 @@ const CasesSection = () => {
       debt: "2 450 000",
       result: "Списано 100% долгов",
       duration: "4 месяца",
-      image: "👨‍💼",
+      image: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/3b28f32f-cf6a-40d8-90d0-2bbb0db1610e.jpg",
       story: "Накопились долги по кредитам и микрозаймам. Банки подали в суд, начали списывать зарплату. После банкротства все долги списаны, жизнь началась заново.",
       debts: [
         { type: "Банковские кредиты", amount: "1 850 000" },
@@ -94,7 +94,13 @@ const CasesSection = () => {
               className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start space-x-4 mb-4">
-                <div className="text-5xl">{caseItem.image}</div>
+                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                  {caseItem.image.startsWith('http') ? (
+                    <img src={caseItem.image} alt={caseItem.name} className="w-full h-full object-cover object-top" />
+                  ) : (
+                    <div className="text-5xl flex items-center justify-center w-full h-full">{caseItem.image}</div>
+                  )}
+                </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-foreground mb-1">
                     {caseItem.name}, {caseItem.age} лет
