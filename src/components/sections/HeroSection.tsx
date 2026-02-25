@@ -90,7 +90,7 @@ const HeroSection = () => {
                     <Icon name="CheckCircle2" size={20} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Отсутствие дохода или имущества</p>
+                    <p className="font-semibold text-foreground">Регистрация на территории Российской Федерации</p>
                     <p className="text-sm text-muted-foreground">Для погашения всех обязательств</p>
                   </div>
                 </div>
