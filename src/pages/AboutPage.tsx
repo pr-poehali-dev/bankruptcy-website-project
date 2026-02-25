@@ -70,7 +70,7 @@ const AboutPage = () => {
     },
     {
       icon: "TrendingUp",
-      title: "Высокий процент успеха",
+      title: "Высокий результат",
       description: "100% выигранных дел в судах"
     },
     {
