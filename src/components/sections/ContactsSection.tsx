@@ -8,7 +8,6 @@ const ContactsSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email: "",
     message: ""
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -24,7 +23,7 @@ const ContactsSection = () => {
       });
       if (res.ok) {
         setStatus("success");
-        setFormData({ name: "", phone: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -145,18 +144,7 @@ const ContactsSection = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Какая примерно общая сумма по всем кредитам, задолженностям?
-                </label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="your@email.com"
-                />
-              </div>
+
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
