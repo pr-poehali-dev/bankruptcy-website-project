@@ -51,7 +51,7 @@ const CasesSection = () => {
       name: "Светлана Ч.",
       age: 53,
       city: "Новосибирск",
-      debt: "890 000",
+      debt: "527 000",
       result: "Списано 100% долгов",
       duration: "6 месяцев",
       image: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/1693deff-2bf8-43be-b5c1-62e714f13736.jpg",
