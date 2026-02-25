@@ -24,7 +24,7 @@ const AboutPage = () => {
     {
       name: "Филимонов Алексей Анатольевич",
       role: "Арбитражный управляющий",
-      experience: "10+ лет опыта",
+      experience: "12+ лет опыта",
       specialization: "Арбитражное управление",
       description: "Специалист по арбитражному управлению и сопровождению процедур банкротства.",
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/a536154a-174f-4e4b-bce2-e885e99601c7.jpg"
