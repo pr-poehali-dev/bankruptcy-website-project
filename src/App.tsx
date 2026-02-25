@@ -9,7 +9,6 @@ import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
 import NotFound from "./pages/NotFound";
-import FloatingContactButton from "./components/FloatingContactButton";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +27,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <FloatingContactButton />
+
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
