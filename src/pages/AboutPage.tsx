@@ -30,7 +30,7 @@ const AboutPage = () => {
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/a536154a-174f-4e4b-bce2-e885e99601c7.jpg"
     },
     {
-      name: "Пронин",
+      name: "Пронин Николай Геннадьевич",
       role: "Юрист",
       experience: "8+ лет опыта",
       specialization: "Гражданское право",
