@@ -28,7 +28,7 @@ const HeroSection = () => {
             
             <p className="text-lg text-muted-foreground mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>
               Избавьтесь от долгов законно. Полное юридическое сопровождение 
-              на всех этапах процедуры банкротства. Работаем по всей России с 2015 года.
+              на всех этапах процедуры банкротства. Работаем по всей России с 2021 года.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
