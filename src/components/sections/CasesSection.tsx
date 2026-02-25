@@ -79,9 +79,7 @@ const CasesSection = () => {
             <Icon name="Award" size={16} />
             <span className="text-sm font-semibold">Кейсы клиентов</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Реальные истории наших клиентов
-          </h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4"> Истории наших клиентов</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Мы помогли сотням людей избавиться от долгов и начать жизнь с чистого листа
           </p>
