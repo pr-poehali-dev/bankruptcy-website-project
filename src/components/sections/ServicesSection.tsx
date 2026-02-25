@@ -175,7 +175,7 @@ const ServicesSection = () => {
                   <Icon name="Percent" size={24} className="text-white" />
                   <div>
                     <p className="font-semibold mb-1">Рассрочка платежа</p>
-                    <p className="text-sm text-white/80">Возможна оплата услуг в рассрочку</p>
+                    <p className="text-sm text-white/80">Гибкие рассрочки за процедуру банкротства</p>
                   </div>
                 </div>
               </div>
