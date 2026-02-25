@@ -20,7 +20,7 @@ const ServicesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-4">
-                Не знаете, какая услуга вам нужна?
+                Не знаете, подходит ли вам банкротство?
               </h3>
               <p className="text-white/90 mb-6">
                 Получите бесплатную консультацию нашего специалиста. 
