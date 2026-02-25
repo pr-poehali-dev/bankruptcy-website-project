@@ -66,7 +66,7 @@ const ContactsSection = () => {
   const socialLinks = [
     { icon: "MessageCircle", name: "Telegram", url: "https://t.me/+79613890132" },
     { icon: "MessageSquare", name: "WhatsApp", url: "https://wa.me/79613890132" },
-    { icon: "Phone", name: "Viber", url: "viber://chat?number=%2B79613890132" }
+    { icon: "Phone", name: "Max", url: "viber://chat?number=%2B79613890132" }
   ];
 
   return (
