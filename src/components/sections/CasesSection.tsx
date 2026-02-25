@@ -107,17 +107,9 @@ const CasesSection = () => {
               </div>
 
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-red-800">Долги до процедуры:</span>
                   <span className="text-xl font-bold text-red-600">{caseItem.debt} ₽</span>
-                </div>
-                <div className="space-y-1">
-                  {caseItem.debts.map((debt, idx) => (
-                    <div key={idx} className="flex justify-between text-xs text-red-700">
-                      <span>{debt.type}</span>
-                      <span className="font-semibold">{debt.amount} ₽</span>
-                    </div>
-                  ))}
                 </div>
               </div>
 
