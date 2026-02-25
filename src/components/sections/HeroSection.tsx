@@ -80,7 +80,7 @@ const HeroSection = () => {
                     <Icon name="CheckCircle2" size={20} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Задержка платежей от 3 месяцев</p>
+                    <p className="font-semibold text-foreground">Просрочка кредитных платежей от 1 месяца или ожидаемая просрочка</p>
                     <p className="text-sm text-muted-foreground">Или невозможность погасить долги</p>
                   </div>
                 </div>
