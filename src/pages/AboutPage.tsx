@@ -9,7 +9,7 @@ const AboutPage = () => {
       role: "Главный юрисконсульт компании",
       experience: "10 лет опыта",
       specialization: "Банкротство физических лиц",
-      description: "Специалист эксперт по банкротству физических лиц и гражданским делам.",
+      description: "Юрист эксперт по банкротству физических лиц и по гражданским делам.",
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/c7d9e7b1-dfb5-4455-b485-815897c5f791.jpg",
       photoPosition: "object-center"
     },
