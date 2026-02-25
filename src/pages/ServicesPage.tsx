@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ServicesSection from "@/components/sections/ServicesSection";
 import CasesSection from "@/components/sections/CasesSection";
 
 const ServicesPage = () => {
@@ -14,7 +13,6 @@ const ServicesPage = () => {
             Информацию размещаем с согласия клиентов
           </p>
         </div>
-        <ServicesSection />
         <CasesSection />
       </main>
       <Footer />
