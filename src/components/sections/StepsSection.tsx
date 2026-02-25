@@ -152,7 +152,7 @@ const StepsSection = () => {
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-xl font-bold text-foreground mb-2">
-                Общий срок процедуры — от 6 до 12 месяцев
+                Срок процедуры банкротства — от 4 до 6 месяцев
               </h3>
               <p className="text-muted-foreground">
                 Точные сроки зависят от сложности дела, количества кредиторов и загруженности суда. 
