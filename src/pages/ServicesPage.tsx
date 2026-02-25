@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServicesSection from "@/components/sections/ServicesSection";
-import CalculatorSection from "@/components/sections/CalculatorSection";
 import CasesSection from "@/components/sections/CasesSection";
 
 const ServicesPage = () => {
@@ -16,7 +15,6 @@ const ServicesPage = () => {
           </p>
         </div>
         <ServicesSection />
-        <CalculatorSection />
         <CasesSection />
       </main>
       <Footer />
