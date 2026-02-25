@@ -32,7 +32,7 @@ const AboutPage = () => {
     {
       name: "Пронин Николай Геннадьевич",
       role: "Юрист по банкротству физлиц и по судебному представительству любых видов дел",
-      experience: "8+ лет опыта",
+      experience: "15+ лет опыта",
       specialization: "Гражданское право",
       description: "Специалист по гражданским делам и судебному представительству.",
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/57b7428e-ded9-490e-994e-8c2becc80f52.jpg"
