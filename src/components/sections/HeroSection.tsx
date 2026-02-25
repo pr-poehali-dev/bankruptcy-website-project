@@ -80,7 +80,7 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">Просрочка кредитных платежей от 1 месяца или ожидаемая просрочка</p>
-                    <p className="text-sm text-muted-foreground">Или невозможность погасить долги</p>
+                    <p className="text-sm text-muted-foreground">Или долги у приставов, списываются на любом этапе.</p>
                   </div>
                 </div>
 
