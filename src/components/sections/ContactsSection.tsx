@@ -161,7 +161,7 @@ const ContactsSection = () => {
 
               <Button type="submit" size="lg" className="w-full" disabled={status === "loading"}>
                 <Icon name={status === "loading" ? "Loader" : "Send"} size={18} className="mr-2" />
-                {status === "loading" ? "Отправляем..." : "Отправить заявку"}
+                {status === "loading" ? "Отправляем..." : "Отправить заявку на дистанционную консультацию"}
               </Button>
 
               {status === "success" && (
