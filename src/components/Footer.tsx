@@ -46,7 +46,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Информация</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#steps" className="hover:text-primary transition-colors">Этапы работы</a></li>
-              <li><a href="#pricing" className="hover:text-primary transition-colors">Цены</a></li>
+              <li><a href="#pricing" className="hover:text-primary transition-colors">О нас</a></li>
               <li><a href="#cases" className="hover:text-primary transition-colors">Кейсы</a></li>
               <li><a href="#faq" className="hover:text-primary transition-colors">Вопросы и ответы</a></li>
               <li><a href="#blog" className="hover:text-primary transition-colors">Блог</a></li>
