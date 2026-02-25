@@ -99,10 +99,7 @@ const CasesSection = () => {
                   <h3 className="text-xl font-bold text-foreground mb-1">
                     {caseItem.name}, {caseItem.age} лет
                   </h3>
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                    <Icon name="MapPin" size={14} />
-                    <span>{caseItem.city}</span>
-                  </div>
+
                 </div>
               </div>
 
