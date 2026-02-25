@@ -35,10 +35,7 @@ const HeroSection = () => {
                 <Icon name="PhoneCall" size={18} className="mr-2" />
                 Заказать обратный звонок
               </Button>
-              <Button size="lg" variant="outline" className="text-base" onClick={scrollToCalculator}>
-                <Icon name="Calculator" size={18} className="mr-2" />
-                Рассчитать стоимость
-              </Button>
+
             </div>
 
             <div className="grid grid-cols-3 gap-6" style={{ animation: "fadeInUp 0.8s ease-out 0.8s both" }}>
