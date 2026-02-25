@@ -21,14 +21,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/97 backdrop-blur-sm border-b border-slate-700">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <Icon name="Scale" size={32} className="text-primary" />
             <div>
-              <h1 className="text-xl font-bold text-foreground">ВЕРНОЕ РЕШЕНИЕ</h1>
-              <p className="text-xs text-muted-foreground">Центр юридической защиты</p>
+              <h1 className="text-xl font-bold text-white">ВЕРНОЕ РЕШЕНИЕ</h1>
+              <p className="text-xs text-slate-400">Центр юридической защиты</p>
             </div>
           </Link>
 
@@ -39,8 +39,8 @@ const Header = () => {
                 to={item.href}
                 className={`text-sm transition-colors ${
                   isActive(item.href) 
-                    ? 'text-primary font-semibold' 
-                    : 'text-foreground hover:text-primary'
+                    ? 'text-blue-400 font-semibold' 
+                    : 'text-slate-300 hover:text-white'
                 }`}
               >
                 {item.title}
@@ -50,8 +50,8 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center space-x-3">
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">+7 (961) 389-01-32</p>
-              <p className="text-xs text-muted-foreground">Пн-Сб 10:00-19:00</p>
+              <p className="text-sm font-semibold text-white">+7 (961) 389-01-32</p>
+              <p className="text-xs text-slate-400">Пн-Сб 10:00-19:00</p>
             </div>
             <Button size="sm" onClick={() => setIsModalOpen(true)}>Консультация</Button>
           </div>
@@ -73,16 +73,16 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block w-full text-left text-sm transition-colors py-2 ${
                   isActive(item.href) 
-                    ? 'text-primary font-semibold' 
-                    : 'text-foreground hover:text-primary'
+                    ? 'text-blue-400 font-semibold' 
+                    : 'text-slate-300 hover:text-white'
                 }`}
               >
                 {item.title}
               </Link>
             ))}
-            <div className="pt-4 border-t border-border">
-              <p className="text-sm font-semibold text-foreground">+7 (961) 389-01-32</p>
-              <p className="text-xs text-muted-foreground mb-3">Пн-Сб 10:00-19:00</p>
+            <div className="pt-4 border-t border-slate-700">
+              <p className="text-sm font-semibold text-white">+7 (961) 389-01-32</p>
+              <p className="text-xs text-slate-400 mb-3">Пн-Сб 10:00-19:00</p>
               <Button className="w-full" onClick={() => setIsModalOpen(true)}>Консультация</Button>
             </div>
           </nav>
