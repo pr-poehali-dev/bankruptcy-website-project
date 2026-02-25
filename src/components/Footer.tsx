@@ -16,8 +16,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Профессиональная помощь в банкротстве физических лиц. 
-              Работаем по всей России с 2015 года.
+              Профессиональная помощь в банкротстве физических лиц и по любым делам. 
+              Работаем по всей России с 2021 года.
             </p>
             <div className="flex space-x-3">
               <a href="tel:+79613890132" className="text-muted-foreground hover:text-primary transition-colors">
