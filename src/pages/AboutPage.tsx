@@ -42,7 +42,7 @@ const AboutPage = () => {
       role: "Юрист по наследственным, семейным и жилищным спорам",
       experience: "8+ лет опыта",
       specialization: "Жилищное право",
-      description: "Специалист по жилищным спорам и сделкам с недвижимостью.",
+      description: "Специалист по наследственным, семейным и жилищным делам.",
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/a84aeb5f-1d08-47aa-ab29-3ba9519da42f.jpg"
     }
   ];
