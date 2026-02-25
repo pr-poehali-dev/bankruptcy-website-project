@@ -27,7 +27,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2">
             <Icon name="Scale" size={32} className="text-primary" />
             <div>
-              <h1 className="text-xl font-bold text-amber-400">ВЕРНОЕ РЕШЕНИЕ</h1>
+              <h1 className="text-xl font-bold text-[#ffffff]">ВЕРНОЕ РЕШЕНИЕ</h1>
               <p className="text-xs text-slate-400">Центр юридической защиты</p>
             </div>
           </Link>
