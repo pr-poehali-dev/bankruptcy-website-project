@@ -11,7 +11,7 @@ const Header = () => {
 
   const menuItems = [
     { title: "Главная", href: "/" },
-    { title: "Услуги", href: "/services" },
+    { title: "Реальные дела наших клиентов", href: "/services" },
     { title: "О нас", href: "/about" },
     { title: "Контакты", href: "/contacts" }
   ];
