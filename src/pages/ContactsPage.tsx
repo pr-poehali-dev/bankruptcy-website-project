@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactsSection from "@/components/sections/ContactsSection";
-import FAQSection from "@/components/sections/FAQSection";
 import Icon from "@/components/ui/icon";
 
 const ContactsPage = () => {
@@ -10,7 +9,6 @@ const ContactsPage = () => {
       <Header />
       <main className="pt-24">
         <ContactsSection />
-        <FAQSection />
       </main>
       <Footer />
     </div>
