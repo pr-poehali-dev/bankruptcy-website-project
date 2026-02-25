@@ -12,7 +12,7 @@ const Footer = () => {
               <Icon name="Scale" size={28} className="text-primary" />
               <div>
                 <h3 className="text-lg font-bold text-[#ffffff]">ВЕРНОЕ РЕШЕНИЕ</h3>
-                <p className="text-xs text-slate-400">Центр юридической защиты</p>
+                <p className="text-xs text-slate-400">Центр юридической защиты, ИНН 6321466877</p>
               </div>
             </div>
             <p className="text-sm text-slate-400 mb-4">
