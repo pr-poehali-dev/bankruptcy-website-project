@@ -3,8 +3,8 @@ import Icon from "@/components/ui/icon";
 const CasesSection = () => {
   const cases = [
     {
-      name: "Сергей М.",
-      age: 42,
+      name: "Юрий Б.",
+      age: 32,
       city: "Москва",
       debt: "649 000",
       result: "Списано 100% долгов",
