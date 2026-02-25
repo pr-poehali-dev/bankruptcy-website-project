@@ -147,7 +147,7 @@ const ContactsSection = () => {
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Email
+                  Какая примерно общая сумма по всем кредитам, задолженностям?
                 </label>
                 <input
                   type="email"
