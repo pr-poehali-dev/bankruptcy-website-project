@@ -171,7 +171,7 @@ const CasesSection = () => {
             <div className="text-3xl">👨‍💼</div>
             <div className="text-left">
               <p className="font-bold text-foreground">Владимир М.</p>
-              <p className="text-sm text-muted-foreground">Клиент, Москва</p>
+              <p className="text-sm text-muted-foreground">Списано 930 000 руб.</p>
             </div>
           </div>
         </div>
