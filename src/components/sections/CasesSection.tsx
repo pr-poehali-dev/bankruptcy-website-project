@@ -170,7 +170,7 @@ const CasesSection = () => {
           <div className="flex items-center justify-center space-x-3">
             <div className="text-3xl">👨‍💼</div>
             <div className="text-left">
-              <p className="font-bold text-foreground">Алексей Р.</p>
+              <p className="font-bold text-foreground">Мария Л.</p>
               <p className="text-sm text-muted-foreground">Клиент, Москва</p>
             </div>
           </div>
