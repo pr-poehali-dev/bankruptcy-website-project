@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,10 +46,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-white">Информация</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#steps" className="hover:text-blue-400 transition-colors">Этапы работы</a></li>
-              <li><a href="#pricing" className="hover:text-blue-400 transition-colors">О нас</a></li>
-              <li><a href="#cases" className="hover:text-blue-400 transition-colors">Кейсы реальных клиентов</a></li>
-              <li><a href="/contacts" className="hover:text-blue-400 transition-colors">Контакты</a></li>
+              <li><Link to="/#steps" className="hover:text-blue-400 transition-colors">Этапы работы</Link></li>
+              <li><Link to="/about" className="hover:text-blue-400 transition-colors">О нас</Link></li>
+              <li><Link to="/services" className="hover:text-blue-400 transition-colors">Кейсы реальных клиентов</Link></li>
+              <li><Link to="/contacts" className="hover:text-blue-400 transition-colors">Контакты</Link></li>
             </ul>
           </div>
 
