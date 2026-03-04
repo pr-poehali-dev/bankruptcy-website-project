@@ -7,9 +7,17 @@ const SEND_EMAIL_URL = "https://functions.poehali.dev/b338ad60-bed5-4a23-97f2-01
 const ContactsSection = () => {
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
+    phone: "+7",
     message: ""
   });
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+    if (!value.startsWith("+7")) {
+      value = "+7" + value.replace(/^\+?7?/, "");
+    }
+    setFormData({...formData, phone: value});
+  };
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,7 +31,7 @@ const ContactsSection = () => {
       });
       if (res.ok) {
         setStatus("success");
-        setFormData({ name: "", phone: "", message: "" });
+        setFormData({ name: "", phone: "+7", message: "" });
       } else {
         setStatus("error");
       }
@@ -138,7 +146,7 @@ const ContactsSection = () => {
                   type="tel"
                   required
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  onChange={handlePhoneChange}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="+7 (___) ___-__-__"
                 />

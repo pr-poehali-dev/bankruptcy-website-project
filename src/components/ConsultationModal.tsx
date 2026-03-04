@@ -18,10 +18,18 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
   const [step, setStep] = useState<"form" | "success">("form");
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
+    phone: "+7",
     debtAmount: "",
     message: ""
   });
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+    if (!value.startsWith("+7")) {
+      value = "+7" + value.replace(/^\+?7?/, "");
+    }
+    setFormData({ ...formData, phone: value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +41,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
       setStep("form");
       setFormData({
         name: "",
-        phone: "",
+        phone: "+7",
         debtAmount: "",
         message: ""
       });
@@ -80,7 +88,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                   type="tel"
                   required
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={handlePhoneChange}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="+7 (___) ___-__-__"
                 />
