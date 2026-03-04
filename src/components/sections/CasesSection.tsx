@@ -163,9 +163,7 @@ const CasesSection = () => {
         <div className="bg-white rounded-xl p-8 text-center max-w-3xl mx-auto">
           <Icon name="Quote" size={40} className="text-primary/20 mx-auto mb-4" />
           <blockquote className="text-lg text-foreground mb-4">
-            "Я думал, что никогда не избавлюсь от долгов. Коллекторы звонили каждый день, 
-            не давали жить. Спасибо команде за профессионализм — все долги списаны, 
-            могу спокойно спать и строить планы на будущее."
+            "Лишился хорошей работы, думал, что никогда не избавлюсь от долгов. Спасибо команде "Верное решение" за профессионализм — все долги списаны, могу спокойно спать и строить планы на будущее."
           </blockquote>
           <div className="flex items-center justify-center space-x-3">
             <div className="text-3xl">👨‍💼</div>
