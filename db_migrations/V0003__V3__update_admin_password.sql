@@ -1,0 +1,1 @@
+UPDATE admin_auth SET password_hash = encode(sha256('357233Eo'::bytea), 'hex');
