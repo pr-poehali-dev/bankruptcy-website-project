@@ -19,6 +19,6 @@ Allow: /
 Disallow: /api/
 Disallow: /*.json$
 
-Sitemap: https://vernoye-reshenie.ru/sitemap.xml
+Sitemap: https://bankrotstvo-vernoe.ru/sitemap.xml
 
-Host: vernoye-reshenie.ru
+Host: bankrotstvo-vernoe.ru
