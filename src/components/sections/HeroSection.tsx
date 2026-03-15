@@ -1,10 +1,18 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ConsultationModal from "@/components/ConsultationModal";
+import { fetchContent } from "@/lib/siteContent";
+
+interface HeroData { badge: string; heading: string; description: string; cta_button: string; stat_cases: string; stat_won: string; stat_years: string; }
 
 const HeroSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [data, setData] = useState<HeroData | null>(null);
+
+  useEffect(() => { fetchContent("/hero").then(d => { if (d.heading) setData(d); }); }, []);
+
+  const h = (key: keyof HeroData, fallback: string) => data?.[key] ?? fallback;
 
   const scrollToCalculator = () => {
     const element = document.querySelector('#calculator');
@@ -19,34 +27,34 @@ const HeroSection = () => {
           <div style={{ animation: "slideInLeft 0.8s ease-out" }}>
             <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4 md:mb-6" style={{ animation: "fadeIn 0.6s ease-out" }}>
               <Icon name="Shield" size={16} />
-              <span className="text-sm font-semibold">Официальная процедура</span>
+              <span className="text-sm font-semibold">{h("badge", "Официальная процедура")}</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight" style={{ animation: "slideInLeft 0.8s ease-out 0.2s both" }}>
-              Банкротство физических лиц под ключ
+              {h("heading", "Банкротство физических лиц под ключ")}
             </h1>
             
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>Полное юридическое сопровождение на всех этапах банкротства.Официальные доходы не являются препятствием,имущество полностью сохраняется.Рассрочка любыми удобными частями.Работаем по всей России с 2021 года.Избавьтесь от долгов и кредитов законно!</p>
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>{h("description", "Полное юридическое сопровождение на всех этапах банкротства.")}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-6 md:mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
               <Button size="lg" className="text-base w-full sm:w-auto" onClick={() => setIsModalOpen(true)}>
                 <Icon name="PhoneCall" size={18} className="mr-2" />
-                Заказать обратный звонок
+                {h("cta_button", "Заказать обратный звонок")}
               </Button>
 
             </div>
 
             <div className="grid grid-cols-3 gap-3 md:gap-6" style={{ animation: "fadeInUp 0.8s ease-out 0.8s both" }}>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">7000+</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">{h("stat_cases", "7000+")}</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Успешных дел</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">100%</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">{h("stat_won", "100%")}</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">Выигранных дел</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">5 лет</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">{h("stat_years", "5 лет")}</p>
                 <p className="text-xs sm:text-sm text-muted-foreground">На рынке</p>
               </div>
             </div>

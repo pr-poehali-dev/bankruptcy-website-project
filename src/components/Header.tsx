@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ConsultationModal from "@/components/ConsultationModal";
+import { fetchContent } from "@/lib/siteContent";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
+  const [company, setCompany] = useState({ phone: "+7 (961) 389-01-32", schedule: "Пн-Сб 10:00-19:00" });
+
+  useEffect(() => { fetchContent("/company").then(d => { if (d.phone) setCompany(d); }); }, []);
 
   const menuItems = [
     { title: "Главная", href: "/" },
@@ -50,8 +54,8 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center space-x-3">
             <div className="text-right">
-              <p className="text-sm font-semibold text-white">+7 (961) 389-01-32</p>
-              <p className="text-xs text-slate-400">Пн-Сб 10:00-19:00</p>
+              <p className="text-sm font-semibold text-white">{company.phone}</p>
+              <p className="text-xs text-slate-400">{company.schedule}</p>
             </div>
             <Button size="sm" onClick={() => setIsModalOpen(true)}>Консультация</Button>
           </div>
@@ -86,8 +90,8 @@ const Header = () => {
               </Link>
             ))}
             <div className="pt-4 border-t border-slate-700">
-              <p className="text-sm font-semibold text-white">+7 (961) 389-01-32</p>
-              <p className="text-xs text-slate-400 mb-3">Пн-Сб 10:00-19:00</p>
+              <p className="text-sm font-semibold text-white">{company.phone}</p>
+              <p className="text-xs text-slate-400 mb-3">{company.schedule}</p>
               <Button className="w-full" onClick={() => setIsModalOpen(true)}>Консультация</Button>
             </div>
           </nav>

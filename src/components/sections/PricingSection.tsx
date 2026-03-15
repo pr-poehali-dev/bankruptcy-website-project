@@ -1,70 +1,21 @@
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
+import { useEffect, useState } from "react";
+import { fetchContent } from "@/lib/siteContent";
+
+interface PkgType { id: number; name: string; price: number; description: string; is_featured: boolean; features: string[]; limitations: string[]; }
+interface ExtraType { id: number; name: string; price: string; }
 
 const PricingSection = () => {
-  const packages = [
-    {
-      name: "Базовый",
-      price: "25 000",
-      popular: false,
-      description: "Для простых случаев с минимальным количеством кредиторов",
-      features: [
-        "Консультация юриста",
-        "Подготовка документов",
-        "Подача заявления в суд",
-        "До 3 кредиторов",
-        "1 судебное заседание",
-        "Онлайн поддержка"
-      ],
-      limitations: [
-        "Дополнительные заседания оплачиваются отдельно",
-        "Работа с управляющим не включена"
-      ]
-    },
-    {
-      name: "Стандарт",
-      price: "45 000",
-      popular: true,
-      description: "Оптимальный вариант для большинства случаев банкротства",
-      features: [
-        "Все из пакета Базовый",
-        "До 10 кредиторов",
-        "Все судебные заседания",
-        "Работа с финансовым управляющим",
-        "Защита имущества",
-        "Поддержка 24/7",
-        "Оспаривание требований кредиторов",
-        "Обжалование решений"
-      ],
-      limitations: []
-    },
-    {
-      name: "Премиум",
-      price: "75 000",
-      popular: false,
-      description: "Для сложных дел с большим количеством кредиторов и имущества",
-      features: [
-        "Все из пакета Стандарт",
-        "Неограниченное количество кредиторов",
-        "Защита сложного имущества",
-        "Работа со всеми видами долгов",
-        "Персональный юрист",
-        "VIP поддержка",
-        "Защита от субсидиарной ответственности",
-        "Оспаривание сделок",
-        "Гарантия результата"
-      ],
-      limitations: []
-    }
-  ];
+  const [packages, setPackages] = useState<PkgType[]>([]);
+  const [additionalServices, setAdditionalServices] = useState<ExtraType[]>([]);
 
-  const additionalServices = [
-    { name: "Дополнительное судебное заседание", price: "5 000" },
-    { name: "Обжалование решения суда", price: "15 000" },
-    { name: "Оспаривание сделок", price: "от 20 000" },
-    { name: "Работа с субсидиарной ответственностью", price: "от 30 000" },
-    { name: "Срочная подготовка документов (за 1 день)", price: "10 000" }
-  ];
+  useEffect(() => {
+    fetchContent("/pricing").then(d => {
+      if (d.packages?.length) setPackages(d.packages);
+      if (d.extras?.length) setAdditionalServices(d.extras);
+    });
+  }, []);
 
   return (
     <section id="pricing" className="py-20 bg-white">
@@ -83,56 +34,56 @@ const PricingSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {packages.map((pkg, index) => (
+          {packages.map((pkg) => (
             <div 
-              key={index}
+              key={pkg.id}
               className={`rounded-xl p-6 md:p-8 ${
-                pkg.popular 
+                pkg.is_featured 
                   ? 'bg-primary text-primary-foreground shadow-2xl md:scale-105 border-2 border-primary' 
                   : 'bg-white border border-border'
               }`}
             >
-              {pkg.popular && (
+              {pkg.is_featured && (
                 <div className="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">
                   Популярный выбор
                 </div>
               )}
 
-              <h3 className={`text-2xl font-bold mb-2 ${pkg.popular ? 'text-white' : 'text-foreground'}`}>
+              <h3 className={`text-2xl font-bold mb-2 ${pkg.is_featured ? 'text-white' : 'text-foreground'}`}>
                 {pkg.name}
               </h3>
               
               <div className="mb-4">
-                <span className={`text-3xl sm:text-4xl font-bold ${pkg.popular ? 'text-white' : 'text-primary'}`}>
-                  {pkg.price} ₽
+                <span className={`text-3xl sm:text-4xl font-bold ${pkg.is_featured ? 'text-white' : 'text-primary'}`}>
+                  {pkg.price.toLocaleString("ru")} ₽
                 </span>
               </div>
 
-              <p className={`text-sm mb-6 ${pkg.popular ? 'text-white/90' : 'text-muted-foreground'}`}>
+              <p className={`text-sm mb-6 ${pkg.is_featured ? 'text-white/90' : 'text-muted-foreground'}`}>
                 {pkg.description}
               </p>
 
               <ul className="space-y-3 mb-6">
-                {pkg.features.map((feature, idx) => (
+                {(Array.isArray(pkg.features) ? pkg.features : []).map((feature, idx) => (
                   <li key={idx} className="flex items-start space-x-2">
                     <Icon 
                       name="Check" 
                       size={16} 
-                      className={`mt-0.5 flex-shrink-0 ${pkg.popular ? 'text-white' : 'text-primary'}`}
+                      className={`mt-0.5 flex-shrink-0 ${pkg.is_featured ? 'text-white' : 'text-primary'}`}
                     />
-                    <span className={`text-sm ${pkg.popular ? 'text-white' : 'text-foreground'}`}>
+                    <span className={`text-sm ${pkg.is_featured ? 'text-white' : 'text-foreground'}`}>
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              {pkg.limitations.length > 0 && (
+              {(Array.isArray(pkg.limitations) ? pkg.limitations : []).length > 0 && (
                 <div className={`text-xs mb-6 p-3 rounded-lg ${
-                  pkg.popular ? 'bg-white/10' : 'bg-secondary'
+                  pkg.is_featured ? 'bg-white/10' : 'bg-secondary'
                 }`}>
-                  {pkg.limitations.map((limitation, idx) => (
-                    <p key={idx} className={pkg.popular ? 'text-white/80' : 'text-muted-foreground'}>
+                  {(pkg.limitations as string[]).map((limitation, idx) => (
+                    <p key={idx} className={pkg.is_featured ? 'text-white/80' : 'text-muted-foreground'}>
                       * {limitation}
                     </p>
                   ))}
@@ -142,7 +93,7 @@ const PricingSection = () => {
               <Button 
                 className="w-full" 
                 size="lg"
-                variant={pkg.popular ? "secondary" : "default"}
+                variant={pkg.is_featured ? "secondary" : "default"}
               >
                 Выбрать пакет
               </Button>
