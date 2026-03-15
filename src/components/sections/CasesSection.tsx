@@ -180,7 +180,7 @@ const CasesSection = () => {
           <div className="flex items-center justify-between pt-4 border-t border-border">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Icon name="Clock" size={14} />
-              <span>Срок: завершено</span>
+              <span>Срок: 4 месяца</span>
             </div>
             <div className="flex items-center space-x-1 text-sm text-primary">
               <Icon name="Star" size={14} className="fill-current" />
