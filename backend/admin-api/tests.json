@@ -9,7 +9,7 @@
     {
       "name": "Unauthorized check",
       "method": "GET",
-      "path": "/",
+      "path": "/?action=hero",
       "expectedStatus": 401
     }
   ]

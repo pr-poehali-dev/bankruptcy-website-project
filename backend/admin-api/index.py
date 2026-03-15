@@ -40,13 +40,15 @@ def handler(event: dict, context) -> dict:
     if event.get("httpMethod") == "OPTIONS":
         return {"statusCode": 200, "headers": CORS_HEADERS, "body": ""}
 
-    path = event.get("path", "/").rstrip("/") or "/"
+    params = event.get("queryStringParameters") or {}
+    action = params.get("action", "")
+    item_id = params.get("id", "")
     method = event.get("httpMethod", "GET")
     headers = {k.lower(): v for k, v in (event.get("headers") or {}).items()}
     body = json.loads(event.get("body") or "{}")
 
     # --- AUTH ---
-    if path == "/login":
+    if action == "login":
         password = body.get("password", "")
         conn = get_db()
         cur = conn.cursor(cursor_factory=RealDictCursor)
@@ -58,7 +60,7 @@ def handler(event: dict, context) -> dict:
             return resp(200, {"ok": True, "token": token})
         return resp(401, {"ok": False, "error": "Неверный пароль"})
 
-    if path == "/change-password":
+    if action == "change-password":
         if not check_auth(headers):
             return resp(401, {"error": "Unauthorized"})
         new_password = body.get("password", "")
@@ -80,7 +82,7 @@ def handler(event: dict, context) -> dict:
 
     try:
         # --- HERO ---
-        if path == "/hero":
+        if action == "hero":
             if method == "GET":
                 cur.execute("SELECT * FROM hero_content LIMIT 1")
                 return resp(200, dict(cur.fetchone() or {}))
@@ -93,7 +95,7 @@ def handler(event: dict, context) -> dict:
                 return resp(200, {"ok": True})
 
         # --- COMPANY INFO ---
-        if path == "/company":
+        if action == "company":
             if method == "GET":
                 cur.execute("SELECT * FROM company_info LIMIT 1")
                 return resp(200, dict(cur.fetchone() or {}))
@@ -105,8 +107,8 @@ def handler(event: dict, context) -> dict:
                 conn.commit()
                 return resp(200, {"ok": True})
 
-        # --- PRICING PACKAGES ---
-        if path == "/pricing":
+        # --- PRICING ---
+        if action == "pricing":
             if method == "GET":
                 cur.execute("SELECT * FROM pricing_packages ORDER BY sort_order")
                 packages = [dict(r) for r in cur.fetchall()]
@@ -123,43 +125,39 @@ def handler(event: dict, context) -> dict:
                 conn.commit()
                 return resp(200, {"ok": True, "id": cur.fetchone()["id"]})
 
-        if path.startswith("/pricing/package/"):
-            pkg_id = path.split("/")[-1]
+        if action == "pricing-package":
             if method == "PUT":
                 d = body
                 cur.execute("""UPDATE pricing_packages SET sort_order=%s, name=%s, price=%s, description=%s,
                     is_featured=%s, features=%s, limitations=%s, is_active=%s, updated_at=NOW() WHERE id=%s""",
                     (d.get("sort_order"), d["name"], d["price"], d["description"],
                      d.get("is_featured", False), json.dumps(d.get("features", []), ensure_ascii=False),
-                     json.dumps(d.get("limitations", []), ensure_ascii=False), d.get("is_active", True), pkg_id))
+                     json.dumps(d.get("limitations", []), ensure_ascii=False), d.get("is_active", True), item_id))
                 conn.commit()
                 return resp(200, {"ok": True})
             if method == "DELETE":
-                cur.execute("DELETE FROM pricing_packages WHERE id=%s", (pkg_id,))
+                cur.execute("DELETE FROM pricing_packages WHERE id=%s", (item_id,))
                 conn.commit()
                 return resp(200, {"ok": True})
 
-        if path == "/pricing/extra":
+        if action == "pricing-extra":
             if method == "POST":
                 cur.execute("INSERT INTO pricing_extra (sort_order, name, price) VALUES (%s,%s,%s) RETURNING id",
                     (body.get("sort_order", 0), body["name"], body["price"]))
                 conn.commit()
                 return resp(200, {"ok": True, "id": cur.fetchone()["id"]})
-
-        if path.startswith("/pricing/extra/"):
-            extra_id = path.split("/")[-1]
             if method == "PUT":
                 cur.execute("UPDATE pricing_extra SET name=%s, price=%s, sort_order=%s WHERE id=%s",
-                    (body["name"], body["price"], body.get("sort_order", 0), extra_id))
+                    (body["name"], body["price"], body.get("sort_order", 0), item_id))
                 conn.commit()
                 return resp(200, {"ok": True})
             if method == "DELETE":
-                cur.execute("DELETE FROM pricing_extra WHERE id=%s", (extra_id,))
+                cur.execute("DELETE FROM pricing_extra WHERE id=%s", (item_id,))
                 conn.commit()
                 return resp(200, {"ok": True})
 
         # --- CASES ---
-        if path == "/cases":
+        if action == "cases":
             if method == "GET":
                 cur.execute("SELECT * FROM cases ORDER BY sort_order")
                 return resp(200, [dict(r) for r in cur.fetchall()])
@@ -171,25 +169,22 @@ def handler(event: dict, context) -> dict:
                      d["initial_debt"], d.get("result", "Списано 100%"), d["duration"], d["story"], d.get("is_featured", False)))
                 conn.commit()
                 return resp(200, {"ok": True, "id": cur.fetchone()["id"]})
-
-        if path.startswith("/cases/"):
-            case_id = path.split("/")[-1]
             if method == "PUT":
                 d = body
                 cur.execute("""UPDATE cases SET sort_order=%s, client_name=%s, age=%s, city=%s, initial_debt=%s,
                     result=%s, duration=%s, story=%s, is_featured=%s, is_active=%s, updated_at=NOW() WHERE id=%s""",
                     (d.get("sort_order"), d["client_name"], d.get("age"), d["city"], d["initial_debt"],
                      d.get("result", "Списано 100%"), d["duration"], d["story"],
-                     d.get("is_featured", False), d.get("is_active", True), case_id))
+                     d.get("is_featured", False), d.get("is_active", True), item_id))
                 conn.commit()
                 return resp(200, {"ok": True})
             if method == "DELETE":
-                cur.execute("DELETE FROM cases WHERE id=%s", (case_id,))
+                cur.execute("DELETE FROM cases WHERE id=%s", (item_id,))
                 conn.commit()
                 return resp(200, {"ok": True})
 
         # --- FAQ ---
-        if path == "/faq":
+        if action == "faq":
             if method == "GET":
                 cur.execute("SELECT * FROM faq_items ORDER BY sort_order")
                 return resp(200, [dict(r) for r in cur.fetchall()])
@@ -198,21 +193,18 @@ def handler(event: dict, context) -> dict:
                     (body.get("sort_order", 0), body["question"], body["answer"]))
                 conn.commit()
                 return resp(200, {"ok": True, "id": cur.fetchone()["id"]})
-
-        if path.startswith("/faq/"):
-            faq_id = path.split("/")[-1]
             if method == "PUT":
                 cur.execute("UPDATE faq_items SET question=%s, answer=%s, sort_order=%s, is_active=%s WHERE id=%s",
-                    (body["question"], body["answer"], body.get("sort_order"), body.get("is_active", True), faq_id))
+                    (body["question"], body["answer"], body.get("sort_order"), body.get("is_active", True), item_id))
                 conn.commit()
                 return resp(200, {"ok": True})
             if method == "DELETE":
-                cur.execute("DELETE FROM faq_items WHERE id=%s", (faq_id,))
+                cur.execute("DELETE FROM faq_items WHERE id=%s", (item_id,))
                 conn.commit()
                 return resp(200, {"ok": True})
 
         # --- BLOG ---
-        if path == "/blog":
+        if action == "blog":
             if method == "GET":
                 cur.execute("SELECT * FROM blog_articles ORDER BY published_at DESC")
                 return resp(200, [dict(r) for r in cur.fetchall()])
@@ -224,20 +216,17 @@ def handler(event: dict, context) -> dict:
                      d.get("category", "Практика"), d.get("read_time", 5), d.get("published_at")))
                 conn.commit()
                 return resp(200, {"ok": True, "id": cur.fetchone()["id"]})
-
-        if path.startswith("/blog/"):
-            blog_id = path.split("/")[-1]
             if method == "PUT":
                 d = body
                 cur.execute("""UPDATE blog_articles SET slug=%s, title=%s, excerpt=%s, content=%s,
                     category=%s, read_time=%s, published_at=%s, is_active=%s, updated_at=NOW() WHERE id=%s""",
                     (d["slug"], d["title"], d["excerpt"], d.get("content", ""),
                      d.get("category", "Практика"), d.get("read_time", 5),
-                     d.get("published_at"), d.get("is_active", True), blog_id))
+                     d.get("published_at"), d.get("is_active", True), item_id))
                 conn.commit()
                 return resp(200, {"ok": True})
             if method == "DELETE":
-                cur.execute("DELETE FROM blog_articles WHERE id=%s", (blog_id,))
+                cur.execute("DELETE FROM blog_articles WHERE id=%s", (item_id,))
                 conn.commit()
                 return resp(200, {"ok": True})
 
