@@ -7,7 +7,9 @@ from psycopg2.extras import RealDictCursor
 
 
 def get_db():
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    dsn = os.environ["DATABASE_URL"]
+    schema = os.environ.get("MAIN_DB_SCHEMA", "public")
+    conn = psycopg2.connect(dsn, options=f"-c search_path={schema}")
     return conn
 
 
