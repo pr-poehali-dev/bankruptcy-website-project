@@ -14,8 +14,11 @@ interface ConsultationModalProps {
   onClose: () => void;
 }
 
+const SEND_EMAIL_URL = "https://functions.poehali.dev/b338ad60-bed5-4a23-97f2-01990646da61";
+
 const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
-  const [step, setStep] = useState<"form" | "success">("form");
+  const [step, setStep] = useState<"form" | "success" | "error">("form");
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "+7",
@@ -31,21 +34,34 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
     setFormData({ ...formData, phone: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Consultation request:", formData);
-    setStep("success");
-    
-    setTimeout(() => {
-      onClose();
-      setStep("form");
-      setFormData({
-        name: "",
-        phone: "+7",
-        debtAmount: "",
-        message: ""
+    setLoading(true);
+    try {
+      const res = await fetch(SEND_EMAIL_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          message: `Сумма долгов: ${formData.debtAmount || "не указана"}. ${formData.message}`.trim(),
+        }),
       });
-    }, 3000);
+      if (res.ok) {
+        setStep("success");
+        setTimeout(() => {
+          onClose();
+          setStep("form");
+          setFormData({ name: "", phone: "+7", debtAmount: "", message: "" });
+        }, 3000);
+      } else {
+        setStep("error");
+      }
+    } catch {
+      setStep("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -134,9 +150,9 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                 </div>
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                <Icon name="Send" size={18} className="mr-2" />
-                Отправить заявку
+              <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                <Icon name={loading ? "Loader2" : "Send"} size={18} className={`mr-2${loading ? " animate-spin" : ""}`} />
+                {loading ? "Отправляем..." : "Отправить заявку"}
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
@@ -144,7 +160,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
               </p>
             </form>
           </>
-        ) : (
+        ) : step === "success" ? (
           <div className="py-8 text-center" style={{ animation: "scaleIn 0.4s ease-out" }}>
             <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Icon name="CheckCircle2" size={40} className="text-green-600" />
@@ -161,6 +177,17 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                 <span>Ожидайте звонка в течение 5 минут</span>
               </div>
             </div>
+          </div>
+        ) : (
+          <div className="py-8 text-center">
+            <div className="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Icon name="AlertCircle" size={40} className="text-red-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-3">Ошибка отправки</h3>
+            <p className="text-muted-foreground mb-6">Попробуйте ещё раз или позвоните нам напрямую</p>
+            <Button onClick={() => setStep("form")} variant="outline" className="w-full">
+              Попробовать снова
+            </Button>
           </div>
         )}
       </DialogContent>

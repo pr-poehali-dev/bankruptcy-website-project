@@ -1,12 +1,42 @@
 import json
 import os
 import smtplib
+import urllib.request
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
+def send_telegram(name: str, phone: str, email: str, message: str):
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+    if not token or not chat_id:
+        return
+
+    text = (
+        f"📬 *Новая заявка с сайта*\n\n"
+        f"👤 *Имя:* {name}\n"
+        f"📞 *Телефон:* {phone}\n"
+        f"✉️ *Email:* {email}\n"
+        f"💬 *Сообщение:* {message or '—'}"
+    )
+
+    payload = json.dumps({
+        "chat_id": chat_id,
+        "text": text,
+        "parse_mode": "Markdown"
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST"
+    )
+    urllib.request.urlopen(req, timeout=10)
+
+
 def handler(event: dict, context) -> dict:
-    """Отправка заявки с сайта на почту tlt@meraprava.ru"""
+    """Отправка заявки с сайта на почту tlt@meraprava.ru и в Telegram"""
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -25,7 +55,7 @@ def handler(event: dict, context) -> dict:
     smtp_host = "smtp.yandex.ru"
     smtp_port = 465
     smtp_user = "tlt@meraprava.ru"
-    smtp_password = os.environ.get("SMTP_PASSWORD", "jpctttjiznchpkra")
+    smtp_password = os.environ.get("SMTP_PASSWORD", "")
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"Новая заявка с сайта — {name}"
@@ -49,6 +79,8 @@ def handler(event: dict, context) -> dict:
     with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
         server.login(smtp_user, smtp_password)
         server.sendmail(smtp_user, smtp_user, msg.as_string())
+
+    send_telegram(name, phone, email, message)
 
     return {
         "statusCode": 200,
