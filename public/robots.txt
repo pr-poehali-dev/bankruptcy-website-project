@@ -1,7 +1,13 @@
+User-agent: *
+Allow: /
+
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
 Allow: /
 
 User-agent: Twitterbot
@@ -10,5 +16,9 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+Sitemap: https://vernoye-reshenie.ru/sitemap.xml
+
+Host: vernoye-reshenie.ru
