@@ -3,6 +3,7 @@ import os
 import hashlib
 import psycopg2
 from psycopg2.extras import RealDictCursor
+# v2
 
 
 def get_db():
