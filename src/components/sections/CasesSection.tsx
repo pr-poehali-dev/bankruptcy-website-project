@@ -169,7 +169,7 @@ const CasesSection = () => {
                 <Icon name="CheckCircle2" size={20} className="text-green-600" />
                 <span className="text-sm font-semibold text-green-800">Результат:</span>
               </div>
-              <span className="text-lg font-bold text-green-600">Списано 930 000 руб.</span>
+              <span className="text-lg font-bold text-green-600">Списано 625 000 руб.</span>
             </div>
           </div>
 
