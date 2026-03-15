@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 import { useEffect, useState } from "react";
 import { fetchContent } from "@/lib/siteContent";
 
-interface CaseType { id: number; client_name: string; age: number | null; city: string; initial_debt: number; result: string; duration: string; story: string; is_featured: boolean; }
+interface CaseType { id: number; client_name: string; age: number | null; city: string; initial_debt: number; result: string; duration: string; story: string; is_featured: boolean; photo_url?: string; }
 
 const CasesSection = () => {
   const [allCases, setAllCases] = useState<CaseType[]>([]);
@@ -37,8 +37,11 @@ const CasesSection = () => {
           {cases.map((caseItem) => (
             <div key={caseItem.id} className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start space-x-4 mb-4">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Icon name="User" size={28} className="text-primary" />
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex-shrink-0 overflow-hidden">
+                  {caseItem.photo_url
+                    ? <img src={caseItem.photo_url} alt={caseItem.client_name} className="w-full h-full object-cover" />
+                    : <div className="w-full h-full flex items-center justify-center"><Icon name="User" size={28} className="text-primary" /></div>
+                  }
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-foreground mb-1">
@@ -83,8 +86,11 @@ const CasesSection = () => {
         {featuredCase && (
         <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow max-w-3xl mx-auto">
           <div className="flex items-start space-x-4 mb-4">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Icon name="User" size={28} className="text-primary" />
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex-shrink-0 overflow-hidden">
+              {featuredCase.photo_url
+                ? <img src={featuredCase.photo_url} alt={featuredCase.client_name} className="w-full h-full object-cover" />
+                : <div className="w-full h-full flex items-center justify-center"><Icon name="User" size={28} className="text-primary" /></div>
+              }
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold text-foreground mb-1">{featuredCase.client_name}</h3>
