@@ -13,43 +13,43 @@ const HeroSection = () => {
     }
   };
   return (
-    <section id="hero" className="pt-32 pb-20 bg-gradient-to-br from-white to-secondary">
+    <section id="hero" className="pt-24 pb-16 md:pt-32 md:pb-20 bg-gradient-to-br from-white to-secondary">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div style={{ animation: "slideInLeft 0.8s ease-out" }}>
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6" style={{ animation: "fadeIn 0.6s ease-out" }}>
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4 md:mb-6" style={{ animation: "fadeIn 0.6s ease-out" }}>
               <Icon name="Shield" size={16} />
               <span className="text-sm font-semibold">Официальная процедура</span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight" style={{ animation: "slideInLeft 0.8s ease-out 0.2s both" }}>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight" style={{ animation: "slideInLeft 0.8s ease-out 0.2s both" }}>
               Банкротство физических лиц под ключ
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>
               Избавьтесь от долгов законно. Официальные доходы не являются препятствием банкротства, имущество полностью сохраняется. Полное юридическое сопровождение на всех этапах процедуры банкротства. Работаем по всей России с 2021 года.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
-              <Button size="lg" className="text-base" onClick={() => setIsModalOpen(true)}>
+            <div className="flex flex-col sm:flex-row gap-4 mb-6 md:mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
+              <Button size="lg" className="text-base w-full sm:w-auto" onClick={() => setIsModalOpen(true)}>
                 <Icon name="PhoneCall" size={18} className="mr-2" />
                 Заказать обратный звонок
               </Button>
 
             </div>
 
-            <div className="grid grid-cols-3 gap-6" style={{ animation: "fadeInUp 0.8s ease-out 0.8s both" }}>
+            <div className="grid grid-cols-3 gap-3 md:gap-6" style={{ animation: "fadeInUp 0.8s ease-out 0.8s both" }}>
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">7000+</p>
-                <p className="text-sm text-muted-foreground">Успешных дел</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">7000+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Успешных дел</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">100%</p>
-                <p className="text-sm text-muted-foreground">Выигранных дел</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">100%</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Выигранных дел</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">5 лет</p>
-                <p className="text-sm text-muted-foreground">На рынке</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mb-1">5 лет</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">На рынке</p>
               </div>
             </div>
           </div>

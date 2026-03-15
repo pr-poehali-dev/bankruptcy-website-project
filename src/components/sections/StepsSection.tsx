@@ -84,10 +84,10 @@ const StepsSection = () => {
             <Icon name="ListChecks" size={16} />
             <span className="text-sm font-semibold">Этапы работы</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Как проходит процедура банкротства
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Мы сопровождаем вас на каждом этапе и берем на себя все юридические формальности
           </p>
         </div>
@@ -96,7 +96,7 @@ const StepsSection = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 md:p-8 hover:shadow-lg transition-shadow relative"
+              className="bg-white rounded-xl p-4 md:p-8 hover:shadow-lg transition-shadow relative"
             >
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="flex-shrink-0">
@@ -112,7 +112,7 @@ const StepsSection = () => {
 
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-2xl font-bold text-foreground">
+                    <h3 className="text-lg sm:text-2xl font-bold text-foreground">
                       {step.title}
                     </h3>
                     <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full whitespace-nowrap ml-4">
@@ -145,7 +145,7 @@ const StepsSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 bg-white rounded-xl p-8 max-w-4xl mx-auto">
+        <div className="mt-12 bg-white rounded-xl p-4 md:p-8 max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
               <Icon name="Info" size={28} className="text-primary" />

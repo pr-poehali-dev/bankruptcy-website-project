@@ -24,10 +24,10 @@ const BlogSection = () => {
             <Icon name="BookOpen" size={16} />
             <span className="text-sm font-semibold">Блог</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Полезные статьи о банкротстве
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Практические советы, разборы кейсов и актуальная информация от экспертов
           </p>
         </div>
@@ -96,10 +96,10 @@ const BlogSection = () => {
           </Button>
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-white">
+        <div className="mt-12 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-6 md:p-12 text-white">
           <div className="max-w-3xl mx-auto text-center">
             <Icon name="Mail" size={48} className="mx-auto mb-4 text-white/90" />
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-xl sm:text-3xl font-bold mb-4">
               Подпишитесь на рассылку
             </h3>
             <p className="text-lg text-white/90 mb-6">

@@ -80,9 +80,9 @@ const Calculator = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto">
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold text-foreground mb-2">
+    <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-8 max-w-2xl mx-auto">
+      <div className="mb-6 md:mb-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
           Калькулятор стоимости банкротства
         </h3>
         <p className="text-sm text-muted-foreground">
@@ -90,11 +90,11 @@ const Calculator = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6 md:mb-8">
         {[1, 2, 3, 4].map((num) => (
           <div key={num} className="flex items-center">
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors ${
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-colors text-sm sm:text-base ${
                 step >= num
                   ? "bg-primary text-white"
                   : "bg-secondary text-muted-foreground"
@@ -104,7 +104,7 @@ const Calculator = () => {
             </div>
             {num < 4 && (
               <div
-                className={`w-12 h-1 mx-2 transition-colors ${
+                className={`w-6 sm:w-12 h-1 mx-1 sm:mx-2 transition-colors ${
                   step > num ? "bg-primary" : "bg-secondary"
                 }`}
               />
@@ -119,7 +119,7 @@ const Calculator = () => {
             <label className="block text-sm font-medium text-foreground mb-3">
               Какая общая сумма ваших долгов?
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
                 { label: "До 500 000 ₽", value: "300000" },
                 { label: "500 000 - 1 000 000 ₽", value: "800000" },
@@ -149,7 +149,7 @@ const Calculator = () => {
             <label className="block text-sm font-medium text-foreground mb-3">
               Сколько у вас кредиторов?
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
                 { label: "1-3 кредитора", value: "2" },
                 { label: "4-10 кредиторов", value: "7" },
@@ -175,7 +175,7 @@ const Calculator = () => {
             <label className="block text-sm font-medium text-foreground mb-3">
               Есть ли у вас имущество (кроме единственного жилья)?
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 onClick={() => setFormData({ ...formData, hasProperty: "yes" })}
                 className={`p-4 rounded-lg border-2 transition-all ${
@@ -207,7 +207,7 @@ const Calculator = () => {
             <label className="block text-sm font-medium text-foreground mb-3">
               Есть ли у вас официальный доход?
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 onClick={() => setFormData({ ...formData, hasIncome: "yes" })}
                 className={`p-4 rounded-lg border-2 transition-all ${
@@ -235,7 +235,7 @@ const Calculator = () => {
             <label className="block text-sm font-medium text-foreground mb-3">
               Насколько срочно нужно начать процедуру?
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 onClick={() => setFormData({ ...formData, urgency: "normal" })}
                 className={`p-4 rounded-lg border-2 transition-all ${

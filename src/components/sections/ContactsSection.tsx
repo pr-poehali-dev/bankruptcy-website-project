@@ -85,10 +85,10 @@ const ContactsSection = () => {
             <Icon name="Phone" size={16} />
             <span className="text-sm font-semibold">Контакты</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Свяжитесь с нами
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Выберите удобный способ связи. Мы всегда на связи и готовы помочь
           </p>
         </div>
@@ -119,8 +119,8 @@ const ContactsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <div className="bg-secondary rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
+          <div className="bg-secondary rounded-xl p-4 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
               Получить консультацию — подходит ли вам банкротство за 5 минут
             </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -192,8 +192,8 @@ const ContactsSection = () => {
           </div>
 
           <div>
-            <div className="bg-secondary rounded-xl p-8 mb-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
+            <div className="bg-secondary rounded-xl p-4 sm:p-8 mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
                 Напишите нам в мессенджер
               </h3>
               <div className="space-y-3">

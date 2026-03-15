@@ -67,10 +67,10 @@ const FAQSection = () => {
             <Icon name="HelpCircle" size={16} />
             <span className="text-sm font-semibold">Вопросы и ответы</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Частые вопросы о банкротстве
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Ответы на самые популярные вопросы о процедуре банкротства физических лиц
           </p>
         </div>
@@ -99,9 +99,9 @@ const FAQSection = () => {
           </Accordion>
         </div>
 
-        <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center text-white max-w-3xl mx-auto">
+        <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-6 md:p-12 text-center text-white max-w-3xl mx-auto">
           <Icon name="MessageCircle" size={48} className="mx-auto mb-4 text-white/90" />
-          <h3 className="text-3xl font-bold mb-4">
+          <h3 className="text-xl sm:text-3xl font-bold mb-4">
             Не нашли ответ на свой вопрос?
           </h3>
           <p className="text-lg text-white/90 mb-6">

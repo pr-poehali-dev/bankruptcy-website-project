@@ -50,11 +50,11 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
         {step === "form" ? (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+              <DialogTitle className="text-lg sm:text-2xl font-bold flex items-center gap-2">
                 <div className="bg-primary/10 w-10 h-10 rounded-full flex items-center justify-center">
                   <Icon name="Phone" size={20} className="text-primary" />
                 </div>

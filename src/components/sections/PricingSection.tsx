@@ -74,10 +74,10 @@ const PricingSection = () => {
             <Icon name="DollarSign" size={16} />
             <span className="text-sm font-semibold">Цены</span>
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Прозрачное ценообразование
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Выберите подходящий пакет услуг. Возможна оплата в рассрочку без процентов
           </p>
         </div>
@@ -86,9 +86,9 @@ const PricingSection = () => {
           {packages.map((pkg, index) => (
             <div 
               key={index}
-              className={`rounded-xl p-8 ${
+              className={`rounded-xl p-6 md:p-8 ${
                 pkg.popular 
-                  ? 'bg-primary text-primary-foreground shadow-2xl scale-105 border-2 border-primary' 
+                  ? 'bg-primary text-primary-foreground shadow-2xl md:scale-105 border-2 border-primary' 
                   : 'bg-white border border-border'
               }`}
             >
@@ -103,7 +103,7 @@ const PricingSection = () => {
               </h3>
               
               <div className="mb-4">
-                <span className={`text-4xl font-bold ${pkg.popular ? 'text-white' : 'text-primary'}`}>
+                <span className={`text-3xl sm:text-4xl font-bold ${pkg.popular ? 'text-white' : 'text-primary'}`}>
                   {pkg.price} ₽
                 </span>
               </div>
