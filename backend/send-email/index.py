@@ -1,6 +1,7 @@
 import json
 import os
 import urllib.request
+import urllib.error
 
 
 def handler(event: dict, context) -> dict:
@@ -43,7 +44,16 @@ def handler(event: dict, context) -> dict:
         headers={"Content-Type": "application/json"},
         method="POST"
     )
-    urllib.request.urlopen(req, timeout=10)
+    try:
+        urllib.request.urlopen(req, timeout=10)
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8")
+        print(f"[Telegram Error] status={e.code} chat_id={chat_id!r} token_len={len(token)} response={error_body}")
+        return {
+            "statusCode": 500,
+            "headers": headers,
+            "body": json.dumps({"ok": False, "error": error_body}),
+        }
 
     return {
         "statusCode": 200,
