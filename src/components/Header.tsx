@@ -56,12 +56,17 @@ const Header = () => {
             <Button size="sm" onClick={() => setIsModalOpen(true)}>Консультация</Button>
           </div>
 
-          <button
-            className="lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
-          </button>
+          <div className="flex items-center gap-3 lg:hidden">
+            <a
+              href="tel:+79613890132"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white"
+            >
+              <Icon name="Phone" size={18} />
+            </a>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <Icon name={isMenuOpen ? "X" : "Menu"} size={24} className="text-white" />
+            </button>
+          </div>
         </div>
 
         {isMenuOpen && (
