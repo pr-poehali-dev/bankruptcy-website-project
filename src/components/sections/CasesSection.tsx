@@ -68,7 +68,7 @@ const CasesSection = () => {
                 </div>
               </div>
 
-              <p className="text-sm text-muted-foreground mb-4 italic">"Накопились долги, помогая матери на лечение. Банки подали в суд, списывали пол-зарплаты. После банкротства все долги списаны!" (Дело №А55-9271/2022)</p>
+              <p className="text-sm text-muted-foreground mb-4 italic">"{caseItem.story}"</p>
 
               <div className="flex items-center justify-between pt-4 border-t border-border">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
