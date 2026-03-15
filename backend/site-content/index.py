@@ -1,14 +1,8 @@
 import json
 import os
+import traceback
 import psycopg2
 from psycopg2.extras import RealDictCursor
-
-
-def get_db():
-    dsn = os.environ["DATABASE_URL"]
-    schema = os.environ.get("MAIN_DB_SCHEMA", "public")
-    conn = psycopg2.connect(dsn, options=f"-c search_path={schema}")
-    return conn
 
 
 CORS = {
@@ -22,17 +16,32 @@ def resp(data):
     return {"statusCode": 200, "headers": CORS, "body": json.dumps(data, ensure_ascii=False, default=str)}
 
 
+def err(msg, code=500):
+    print(f"ERROR: {msg}")
+    return {"statusCode": code, "headers": CORS, "body": json.dumps({"error": msg})}
+
+
 def handler(event: dict, context) -> dict:
     """Публичное API для чтения контента сайта (hero, company, pricing, cases, faq, blog)"""
 
     if event.get("httpMethod") == "OPTIONS":
         return {"statusCode": 200, "headers": CORS, "body": ""}
 
-    path = event.get("path", "/").rstrip("/") or "/"
-    conn = get_db()
-    cur = conn.cursor(cursor_factory=RealDictCursor)
+    qs = event.get("queryStringParameters") or {}
+    section = qs.get("section", "")
+    path = f"/{section}" if section else (event.get("path", "/").rstrip("/") or "/")
 
     try:
+        dsn = os.environ["DATABASE_URL"]
+        schema = os.environ.get("MAIN_DB_SCHEMA", "public")
+        print(f"Connecting with schema={schema}, path={path}")
+        conn = psycopg2.connect(dsn, options=f"-c search_path={schema}")
+    except Exception as e:
+        return err(f"DB connect failed: {e}")
+
+    try:
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+
         if path == "/hero":
             cur.execute("SELECT * FROM hero_content LIMIT 1")
             return resp(dict(cur.fetchone() or {}))
@@ -79,5 +88,8 @@ def handler(event: dict, context) -> dict:
 
         return {"statusCode": 404, "headers": CORS, "body": json.dumps({"error": "Not found"})}
 
+    except Exception as e:
+        print(traceback.format_exc())
+        return err(f"Query failed: {e}")
     finally:
         conn.close()

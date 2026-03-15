@@ -5,6 +5,12 @@
       "method": "OPTIONS",
       "path": "/",
       "expectedStatus": 200
+    },
+    {
+      "name": "Get cases",
+      "method": "GET",
+      "path": "/?section=cases",
+      "expectedStatus": 200
     }
   ]
 }
