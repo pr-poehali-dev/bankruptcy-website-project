@@ -1,0 +1,1 @@
+UPDATE t_p87329859_bankruptcy_website_p.cases SET photo_url = 'https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/6898629d-0e97-42d1-9ec5-6538782fb46c.jpg' WHERE id = 2;
