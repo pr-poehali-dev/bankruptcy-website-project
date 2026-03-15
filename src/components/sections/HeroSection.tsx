@@ -26,9 +26,7 @@ const HeroSection = () => {
               Банкротство физических лиц под ключ
             </h1>
             
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>
-              Избавьтесь от долгов законно. Официальные доходы не являются препятствием банкротства, имущество полностью сохраняется. Полное юридическое сопровождение на всех этапах процедуры банкротства. Работаем по всей России с 2021 года.
-            </p>
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8" style={{ animation: "slideInLeft 0.8s ease-out 0.4s both" }}>Полное юридическое сопровождение на всех этапах банкротства.Официальные доходы не являются препятствием,имущество полностью сохраняется.Рассрочка любыми удобными частями.Работаем по всей России с 2021 года.Избавьтесь от долгов и кредитов законно!</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-6 md:mb-8" style={{ animation: "fadeInUp 0.8s ease-out 0.6s both" }}>
               <Button size="lg" className="text-base w-full sm:w-auto" onClick={() => setIsModalOpen(true)}>
