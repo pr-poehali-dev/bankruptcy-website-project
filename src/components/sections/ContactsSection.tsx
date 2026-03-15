@@ -163,7 +163,7 @@ const ContactsSection = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  placeholder="Опишите кратко вашу ситуацию: какая общая сумма по всем кредитам или задолженностям? Имеете ли ипотеку? единственное жилье по закону защищено. Есть ли просрочки? Какие у вас вопросы по банкротству?"
+                  placeholder="Опишите кратко вашу ситуацию? Какая общая сумма по всем задолженностям и кредитам?"
                 />
               </div>
 
