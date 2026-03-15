@@ -146,16 +146,48 @@ const CasesSection = () => {
         </div>
 
 
-        <div className="bg-white rounded-xl p-8 text-center max-w-3xl mx-auto">
-          <Icon name="Quote" size={40} className="text-primary/20 mx-auto mb-4" />
-          <blockquote className="text-lg text-foreground mb-4">
-            "Лишился хорошей работы, думал, что никогда не избавлюсь от долгов. Спасибо команде "Верное решение" — все долги списаны, могу спать спокойно и строить планы на будущее." (дело № №А55-7607/2022)
-          </blockquote>
-          <div className="flex items-center justify-center space-x-3">
-            <div className="text-3xl">👨‍💼</div>
-            <div className="text-left">
-              <p className="font-bold text-foreground">Владимир М.</p>
-              <p className="text-sm text-muted-foreground">Списано 930 000 руб.</p>
+        <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow max-w-3xl mx-auto">
+          <div className="flex items-start space-x-4 mb-4">
+            <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+              <img src="https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/8027c995-42ab-4f6e-b0a0-531a1471517f.jpg" alt="Владимир М." className="w-full h-full object-cover object-top" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-foreground mb-1">Владимир М.</h3>
+            </div>
+          </div>
+
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-semibold text-red-800">Долги до процедуры:</span>
+              <span className="text-xl font-bold text-red-600">625 000 ₽</span>
+            </div>
+          </div>
+
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <Icon name="CheckCircle2" size={20} className="text-green-600" />
+                <span className="text-sm font-semibold text-green-800">Результат:</span>
+              </div>
+              <span className="text-lg font-bold text-green-600">Списано 930 000 руб.</span>
+            </div>
+          </div>
+
+          <p className="text-sm text-muted-foreground mb-4 italic">
+            "Лишился хорошей работы, думал, что никогда не избавлюсь от долгов. Спасибо команде "Верное решение" — все долги списаны, могу спать спокойно и строить планы на будущее." (дело №А55-7607/2022)
+          </p>
+
+          <div className="flex items-center justify-between pt-4 border-t border-border">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <Icon name="Clock" size={14} />
+              <span>Срок: завершено</span>
+            </div>
+            <div className="flex items-center space-x-1 text-sm text-primary">
+              <Icon name="Star" size={14} className="fill-current" />
+              <Icon name="Star" size={14} className="fill-current" />
+              <Icon name="Star" size={14} className="fill-current" />
+              <Icon name="Star" size={14} className="fill-current" />
+              <Icon name="Star" size={14} className="fill-current" />
             </div>
           </div>
         </div>
