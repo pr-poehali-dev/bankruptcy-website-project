@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import { LoginPage } from "@/components/admin/AdminHelpers";
 import { HeroTab, CompanyTab, SettingsTab } from "@/components/admin/AdminTabsSimple";
 import { PricingTab, CasesTab, FaqTab, BlogTab } from "@/components/admin/AdminTabsData";
+import { AboutTab } from "@/components/admin/AboutTab";
 
 const TABS = [
   { id: "hero", label: "Главная", icon: "Home" },
@@ -12,6 +13,7 @@ const TABS = [
   { id: "cases", label: "Кейсы", icon: "Award" },
   { id: "faq", label: "FAQ", icon: "HelpCircle" },
   { id: "blog", label: "Блог", icon: "BookOpen" },
+  { id: "about", label: "О нас", icon: "Users" },
   { id: "settings", label: "Настройки", icon: "Settings" },
 ];
 
@@ -68,6 +70,7 @@ export default function AdminPage() {
           {tab === "cases" && <CasesTab />}
           {tab === "faq" && <FaqTab />}
           {tab === "blog" && <BlogTab />}
+          {tab === "about" && <AboutTab />}
           {tab === "settings" && <SettingsTab />}
         </main>
       </div>

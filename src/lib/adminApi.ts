@@ -50,4 +50,12 @@ export const adminApi = {
   createBlog: (data: unknown) => req("POST", "blog", data),
   updateBlog: (id: number, data: unknown) => req("PUT", "blog", data, id),
   deleteBlog: (id: number) => req("DELETE", "blog", {}, id),
+
+  getAboutPage: () => req("GET", "about-page"),
+  saveAboutPage: (data: unknown) => req("PUT", "about-page", data),
+
+  getAboutTeam: () => req("GET", "about-team"),
+  createAboutTeam: (data: unknown) => req("POST", "about-team", data),
+  updateAboutTeam: (id: number, data: unknown) => req("PUT", "about-team", data, id),
+  deleteAboutTeam: (id: number) => req("DELETE", "about-team", {}, id),
 };

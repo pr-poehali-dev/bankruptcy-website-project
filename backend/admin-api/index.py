@@ -230,6 +230,43 @@ def handler(event: dict, context) -> dict:
                 conn.commit()
                 return resp(200, {"ok": True})
 
+        # --- ABOUT PAGE ---
+        if action == "about-page":
+            if method == "GET":
+                cur.execute("SELECT * FROM about_page LIMIT 1")
+                return resp(200, dict(cur.fetchone() or {}))
+            if method == "PUT":
+                cur.execute("UPDATE about_page SET heading=%s, description=%s, updated_at=NOW()",
+                    (body.get("heading"), body.get("description")))
+                conn.commit()
+                return resp(200, {"ok": True})
+
+        # --- ABOUT TEAM ---
+        if action == "about-team":
+            if method == "GET":
+                cur.execute("SELECT * FROM about_team ORDER BY sort_order")
+                return resp(200, [dict(r) for r in cur.fetchall()])
+            if method == "POST":
+                d = body
+                cur.execute("""INSERT INTO about_team (sort_order, name, role, experience, specialization, description, photo, photo_position)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id""",
+                    (d.get("sort_order", 0), d["name"], d["role"], d.get("experience", ""),
+                     d.get("specialization", ""), d.get("description", ""), d.get("photo", ""), d.get("photo_position", "object-top")))
+                conn.commit()
+                return resp(200, {"ok": True, "id": cur.fetchone()["id"]})
+            if method == "PUT":
+                d = body
+                cur.execute("""UPDATE about_team SET sort_order=%s, name=%s, role=%s, experience=%s, specialization=%s,
+                    description=%s, photo=%s, photo_position=%s, is_active=%s, updated_at=NOW() WHERE id=%s""",
+                    (d.get("sort_order"), d["name"], d["role"], d.get("experience", ""), d.get("specialization", ""),
+                     d.get("description", ""), d.get("photo", ""), d.get("photo_position", "object-top"), d.get("is_active", True), item_id))
+                conn.commit()
+                return resp(200, {"ok": True})
+            if method == "DELETE":
+                cur.execute("DELETE FROM about_team WHERE id=%s", (item_id,))
+                conn.commit()
+                return resp(200, {"ok": True})
+
         return resp(404, {"error": "Not found"})
 
     finally:
