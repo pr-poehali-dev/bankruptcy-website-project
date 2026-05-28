@@ -22,14 +22,6 @@ const AboutPage = () => {
       photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/0ee9a7dd-2ae0-4e7e-ac31-95bc1797e5bb.jpg"
     },
     {
-      name: "Филимонов Алексей Анатольевич",
-      role: "Арбитражный управляющий",
-      experience: "12+ лет опыта",
-      specialization: "Арбитражное управление",
-      description: "Арбитражный управляющий, специалист по арбитражному управлению и сопровождению процедур банкротства.",
-      photo: "https://cdn.poehali.dev/projects/46c53743-c789-42c0-baa9-7e4e90f8c24c/bucket/a536154a-174f-4e4b-bce2-e885e99601c7.jpg"
-    },
-    {
       name: "Пронин Николай Геннадьевич",
       role: "Юрист по банкротству физлиц и по судебному представительству",
       experience: "15+ лет опыта",
