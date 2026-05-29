@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/icon";
-import { adminApi } from "@/lib/adminApi";
+import { fetchContent } from "@/lib/siteContent";
 
 interface TeamMember {
   id: number;
@@ -22,8 +22,10 @@ const AboutPage = () => {
   const [team, setTeam] = useState<TeamMember[]>([]);
 
   useEffect(() => {
-    adminApi.getAboutPage().then(d => { if (d && d.heading) setPageData(d); });
-    adminApi.getAboutTeam().then(d => { if (Array.isArray(d)) setTeam(d.filter(m => m.is_active)); });
+    fetchContent("about").then(d => {
+      if (d && d.page && d.page.heading) setPageData(d.page);
+      if (d && Array.isArray(d.team)) setTeam(d.team);
+    });
   }, []);
 
   const advantages = [

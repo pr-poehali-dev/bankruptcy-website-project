@@ -69,6 +69,13 @@ def handler(event: dict, context) -> dict:
             cur.execute("SELECT * FROM blog_articles WHERE is_active=TRUE ORDER BY published_at DESC")
             return resp([dict(r) for r in cur.fetchall()])
 
+        if path == "/about":
+            cur.execute("SELECT * FROM about_page LIMIT 1")
+            page = dict(cur.fetchone() or {})
+            cur.execute("SELECT * FROM about_team WHERE is_active=TRUE ORDER BY sort_order")
+            team = [dict(r) for r in cur.fetchall()]
+            return resp({"page": page, "team": team})
+
         if path == "/all":
             cur.execute("SELECT * FROM hero_content LIMIT 1")
             hero = dict(cur.fetchone() or {})

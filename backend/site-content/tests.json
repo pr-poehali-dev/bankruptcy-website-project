@@ -11,6 +11,12 @@
       "method": "GET",
       "path": "/?section=cases",
       "expectedStatus": 200
+    },
+    {
+      "name": "Get about",
+      "method": "GET",
+      "path": "/?section=about",
+      "expectedStatus": 200
     }
   ]
 }
